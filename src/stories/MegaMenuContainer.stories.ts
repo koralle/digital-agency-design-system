@@ -1,42 +1,42 @@
-import type { Meta, StoryObj } from "@storybook/vue3";
-import MegaMenuContainer from "../components/MegaMenuContainer.vue";
-import MegaMenuTitle from "../components/MegaMenuTitle.vue";
-import Menu from "../components/Menu.vue";
-import { menuList } from "./stub/menulist";
+import type { Meta, StoryObj } from '@storybook/vue3'
+import MegaMenuContainer from '../components/MegaMenuContainer.vue'
+import MegaMenuTitle from '../components/MegaMenuTitle.vue'
+import Menu from '../components/Menu.vue'
+import { menuList } from './stub/menulist'
 
 const meta = {
-  title: "メガメニューコンテナー",
+  title: 'メガメニューコンテナー',
   component: MegaMenuContainer,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     style: {
-      control: "radio",
-      options: ["flat", "shadow"],
+      control: 'radio',
+      options: ['flat', 'shadow'],
     },
     isVisible: {
-      control: "boolean",
+      control: 'boolean',
     },
   },
   args: {
-    style: "flat",
+    style: 'flat',
     isVisible: true,
   },
-} satisfies Meta<typeof MegaMenuContainer>;
-export default meta;
-type Story = StoryObj<typeof meta>;
+} satisfies Meta<typeof MegaMenuContainer>
+export default meta
+type Story = StoryObj<typeof meta>
 
 /**
  * メガメニューコンテナーはレイアウトを提供します
  */
 export const Base: Story = {
   args: {
-    style: "flat",
+    style: 'flat',
     isVisible: true,
   },
   render: (args) => ({
     components: { MegaMenuContainer, MegaMenuTitle, Menu },
     setup: () => {
-      return { ...args, menuList };
+      return { ...args, menuList }
     },
     template: `
     <MegaMenuContainer :isVisible="isVisible">
@@ -57,4 +57,4 @@ export const Base: Story = {
     </MegaMenuContainer>
     `,
   }),
-};
+}

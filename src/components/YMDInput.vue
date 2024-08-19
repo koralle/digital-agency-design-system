@@ -1,29 +1,29 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import { getRandomString } from "../utils/getRandomString";
+import { computed } from 'vue'
+import { getRandomString } from '../utils/getRandomString'
 
 type Props = {
   /** 年の値（v-model:yearで使える） */
-  year: string;
+  year: string
   /** 月の値（v-model:monthで使える） */
-  month: string;
+  month: string
   /** 日の値（v-model:dayで使える） */
-  day: string;
+  day: string
   /** 年月日のラベルです */
-  label?: string;
+  label?: string
   /** 内容を補足するサポートテキスト */
-  supportText?: string;
+  supportText?: string
   /** エラー時に表示するテキスト */
-  errorText?: string;
+  errorText?: string
   /** 必須かどうか。未指定の場合はfalse */
-  isRequired?: boolean;
+  isRequired?: boolean
   /** 妥当性 */
-  isValid?: boolean;
+  isValid?: boolean
   /** フォーカスアウト時のコールバック関数 */
-  onBlur?: () => void;
+  onBlur?: () => void
   /** ボタンが非活性状態か。未指定の場合はfalse */
-  isDisabled?: boolean;
-};
+  isDisabled?: boolean
+}
 
 const props = withDefaults(defineProps<Props>(), {
   label: undefined,
@@ -33,25 +33,25 @@ const props = withDefaults(defineProps<Props>(), {
   isValid: true,
   onBlur: undefined,
   isDisabled: false,
-});
+})
 
-const modelYear = defineModel<string>("year");
-const modelMonth = defineModel<string>("month");
-const modelDay = defineModel<string>("day");
+const modelYear = defineModel<string>('year')
+const modelMonth = defineModel<string>('month')
+const modelDay = defineModel<string>('day')
 
 // aria-describledby用のエラー文言のid名です
-const errorIdName = `ymdInput${getRandomString()}`;
+const errorIdName = `ymdInput${getRandomString()}`
 
 // 状態に応じたクラス名を返します
 const stateClassName = computed<string | null>(() => {
   if (props.isDisabled) {
-    return "isDisabled";
+    return 'isDisabled'
   }
   if (!props.isValid) {
-    return "isInvalid";
+    return 'isInvalid'
   }
-  return null;
-});
+  return null
+})
 </script>
 <template>
   <fieldset
@@ -62,9 +62,11 @@ const stateClassName = computed<string | null>(() => {
     <legend v-if="props.label !== undefined">
       <span class="labelWrapper"
         ><span class="label">{{ props.label }}</span
-        ><span class="requiredText" :class="isRequired ? null : 'optional'">{{
-          isRequired ? "必須" : "任意"
-        }}</span></span
+        ><span
+          class="requiredText"
+          :class="isRequired ? null : 'optional'"
+          >{{ isRequired ? '必須' : '任意' }}</span
+        ></span
       >
     </legend>
     <p class="supportText">{{ props.supportText }}</p>
@@ -114,7 +116,7 @@ const stateClassName = computed<string | null>(() => {
   </fieldset>
 </template>
 <style lang="scss" scoped>
-@use "@/assets/style/utils/utils.scss" as *;
+@use '@/assets/style/utils/utils.scss' as *;
 
 fieldset {
   display: block;

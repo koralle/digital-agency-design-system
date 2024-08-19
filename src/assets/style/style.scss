@@ -1,15 +1,15 @@
 /** Color Scheme */
-@use "./color/primitiveColors";
-@use "./color/semanticColors.scss";
+@use './color/primitiveColors';
+@use './color/semanticColors.scss';
 
 /** Fonts */
-@use "./fonts/font.scss";
+@use './fonts/font.scss';
 
 /** Typography */
-@use "./typography/typography.scss";
+@use './typography/typography.scss';
 
 /* Easing */
-@use "./easing/easing.scss";
+@use './easing/easing.scss';
 
 /** Basic Style */
-@use "./basic/basicStyle.scss";
+@use './basic/basicStyle.scss';

@@ -1,49 +1,49 @@
 <script lang="ts" setup generic="T">
-import { ref, computed } from "vue";
-import PartsRadioButton from "./parts/PartsRadioButton.vue";
+import { ref, computed } from 'vue'
+import PartsRadioButton from './parts/PartsRadioButton.vue'
 
 type Props = {
   /** デフォルト型かタイル型か */
-  radioStyle?: "default" | "tile";
+  radioStyle?: 'default' | 'tile'
   /** 格納するリアクティブな値（v-modelでも使える） */
-  modelValue: T;
+  modelValue: T
   /** 選択肢固有の値です */
-  radioValue: T;
+  radioValue: T
   /** ボタンのラベルです */
-  label: string;
+  label: string
   /** name属性の値です */
-  name: string;
+  name: string
   /** サブテキスト。タイル型の場合に使用できます */
-  subText?: string;
+  subText?: string
   /** 妥当性 */
-  isValid?: boolean;
+  isValid?: boolean
   /** ボタンが非活性状態か。未指定の場合はfalse */
-  isDisabled?: boolean;
-};
+  isDisabled?: boolean
+}
 
-const model = defineModel<T>();
+const model = defineModel<T>()
 
 const props = withDefaults(defineProps<Props>(), {
-  radioStyle: "default",
+  radioStyle: 'default',
   isDisabled: false,
   isValid: true,
   subText: undefined,
-});
+})
 
-const focused = ref<boolean>(false);
+const focused = ref<boolean>(false)
 
-const checked = computed<boolean>(() => props.modelValue === props.radioValue);
+const checked = computed<boolean>(() => props.modelValue === props.radioValue)
 
 // 状態に応じたクラス名を返します
 const stateClassName = computed<string | null>(() => {
   if (props.isDisabled) {
-    return "isDisabled";
+    return 'isDisabled'
   }
   if (!props.isValid) {
-    return "isInvalid";
+    return 'isInvalid'
   }
-  return null;
-});
+  return null
+})
 </script>
 <template>
   <label :class="[radioStyle, stateClassName, { checked }, { focused }]">
@@ -67,7 +67,7 @@ const stateClassName = computed<string | null>(() => {
   </label>
 </template>
 <style lang="scss" scoped>
-@use "@/assets/style/utils/utils.scss" as *;
+@use '@/assets/style/utils/utils.scss' as *;
 
 label {
   position: relative;

@@ -1,21 +1,21 @@
 <script setup lang="ts">
-import { getRandomString } from "../utils/getRandomString";
+import { getRandomString } from '../utils/getRandomString'
 
 type Props = {
-  iconSrc: string;
-  width: number;
-  height: number;
-  color: string;
-  role?: string;
-  ariaLabel?: string;
-  ariaHidden?: boolean;
-};
+  iconSrc: string
+  width: number
+  height: number
+  color: string
+  role?: string
+  ariaLabel?: string
+  ariaHidden?: boolean
+}
 withDefaults(defineProps<Props>(), {
   role: undefined,
   ariaLabel: undefined,
   ariaHidden: undefined,
-});
-const id = getRandomString();
+})
+const id = getRandomString()
 </script>
 <template>
   <svg
@@ -26,7 +26,11 @@ const id = getRandomString();
     :aria-hidden="ariaHidden"
   >
     <mask :id="`mask${id}`">
-      <image :href="iconSrc" :width="width" :height="height" />
+      <image
+        :href="iconSrc"
+        :width="width"
+        :height="height"
+      />
     </mask>
     <rect
       :fill="color"

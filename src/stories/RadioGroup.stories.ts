@@ -1,71 +1,71 @@
-import type { Meta, StoryObj } from "@storybook/vue3";
-import RadioGroup from "../components/RadioGroup.vue";
-import { ref } from "vue";
+import type { Meta, StoryObj } from '@storybook/vue3'
+import RadioGroup from '../components/RadioGroup.vue'
+import { ref } from 'vue'
 
 const meta = {
-  title: "ラジオボタングループ",
+  title: 'ラジオボタングループ',
   component: RadioGroup,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     groupLabel: {
-      control: "text",
+      control: 'text',
     },
     radioStyle: {
-      control: "radio",
-      options: ["default", "tile"],
+      control: 'radio',
+      options: ['default', 'tile'],
     },
     isRequired: {
-      control: "boolean",
+      control: 'boolean',
     },
     isValid: {
-      control: "boolean",
+      control: 'boolean',
     },
     isDisabled: {
-      control: "boolean",
+      control: 'boolean',
     },
     subTexts: {
-      control: "object",
+      control: 'object',
     },
   },
   args: {
-    labels: ["選択肢1", "選択肢2", "選択肢3"],
-    values: ["選択肢1の値", "選択肢2の値", "選択肢3の値"],
-    groupLabel: "ラベル",
-    supportText: "サポートテキスト",
-    errorText: "エラーテキスト",
+    labels: ['選択肢1', '選択肢2', '選択肢3'],
+    values: ['選択肢1の値', '選択肢2の値', '選択肢3の値'],
+    groupLabel: 'ラベル',
+    supportText: 'サポートテキスト',
+    errorText: 'エラーテキスト',
     onBlur: undefined,
     isRequired: false,
     isValid: true,
     isDisabled: false,
-    name: "radio-group",
-    radioStyle: "default",
-    subTexts: ["補助説明", "補助説明", "補助説明"],
+    name: 'radio-group',
+    radioStyle: 'default',
+    subTexts: ['補助説明', '補助説明', '補助説明'],
   },
-} satisfies Meta<typeof RadioGroup>;
-type Story = StoryObj<typeof meta>;
+} satisfies Meta<typeof RadioGroup>
+type Story = StoryObj<typeof meta>
 
-export default meta;
+export default meta
 
 export const Base: Story = {
   args: {
-    labels: ["選択肢1", "選択肢2", "選択肢3"],
-    values: ["選択肢1の値", "選択肢2の値", "選択肢3の値"],
-    groupLabel: "ラベル",
-    supportText: "サポートテキスト",
-    errorText: "エラーテキスト",
+    labels: ['選択肢1', '選択肢2', '選択肢3'],
+    values: ['選択肢1の値', '選択肢2の値', '選択肢3の値'],
+    groupLabel: 'ラベル',
+    supportText: 'サポートテキスト',
+    errorText: 'エラーテキスト',
     onBlur: undefined,
     isRequired: false,
     isValid: true,
     isDisabled: false,
-    modelValue: "",
-    radioStyle: "default",
-    subTexts: ["補助説明", "補助説明", "補助説明"],
+    modelValue: '',
+    radioStyle: 'default',
+    subTexts: ['補助説明', '補助説明', '補助説明'],
   },
   render: (args) => ({
     components: { RadioGroup },
     setup: () => {
-      const checked = ref();
-      return { checked, ...args };
+      const checked = ref()
+      return { checked, ...args }
     },
     template: `
     <div>
@@ -86,4 +86,4 @@ export const Base: Story = {
       </div>
     `,
   }),
-};
+}

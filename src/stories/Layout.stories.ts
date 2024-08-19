@@ -1,15 +1,15 @@
-import type { Meta, StoryObj } from "@storybook/vue3";
-import Layout from "../components/Layout.vue";
+import type { Meta, StoryObj } from '@storybook/vue3'
+import Layout from '../components/Layout.vue'
 
 const meta = {
-  title: "レイアウト",
+  title: 'レイアウト',
   component: Layout,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {},
   args: {},
-} satisfies Meta<typeof Layout>;
-export default meta;
-type Story = StoryObj<typeof meta>;
+} satisfies Meta<typeof Layout>
+export default meta
+type Story = StoryObj<typeof meta>
 
 /**
  * colSpan-というclass名でレイアウトを制御できます。
@@ -43,4 +43,4 @@ export const Base: Story = {
     </Layout>
     `,
   }),
-};
+}

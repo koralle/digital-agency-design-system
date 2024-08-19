@@ -1,38 +1,38 @@
-import type { Meta, StoryObj } from "@storybook/vue3";
-import Pagination from "../components/Pagination.vue";
+import type { Meta, StoryObj } from '@storybook/vue3'
+import Pagination from '../components/Pagination.vue'
 
 const meta = {
-  title: "ページネーション",
+  title: 'ページネーション',
   component: Pagination,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     type: {
-      control: "radio",
-      options: ["simple", "basic"],
+      control: 'radio',
+      options: ['simple', 'basic'],
     },
     current: {
-      control: "number",
+      control: 'number',
     },
     min: {
-      control: "number",
+      control: 'number',
     },
     max: {
-      control: "number",
+      control: 'number',
     },
   },
   args: {
-    type: "basic",
+    type: 'basic',
     current: 995,
     min: 1,
     max: 999,
   },
-} satisfies Meta<typeof Pagination>;
-export default meta;
-type Story = StoryObj<typeof meta>;
+} satisfies Meta<typeof Pagination>
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const Base: Story = {
   args: {
-    type: "basic",
+    type: 'basic',
     current: 995,
     min: 1,
     max: 999,
@@ -42,4 +42,4 @@ export const Base: Story = {
     onClickFirst: () => {},
     onClickEnd: () => {},
   },
-};
+}

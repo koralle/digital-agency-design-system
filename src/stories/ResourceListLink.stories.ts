@@ -1,32 +1,32 @@
-import type { Meta, StoryObj } from "@storybook/vue3";
-import ResourceListLink from "../components/ResourceListLink.vue";
-import { computed } from "vue";
+import type { Meta, StoryObj } from '@storybook/vue3'
+import ResourceListLink from '../components/ResourceListLink.vue'
+import { computed } from 'vue'
 
 const meta = {
-  title: "リソースリスト（リンク）",
+  title: 'リソースリスト（リンク）',
   component: ResourceListLink,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     label: {
-      control: "text",
+      control: 'text',
     },
     title: {
-      control: "text",
+      control: 'text',
     },
     supportText: {
-      control: "text",
+      control: 'text',
     },
     subLabel: {
-      control: "text",
+      control: 'text',
     },
   },
   args: {
-    title: "クライアントコンピューター001",
-    supportText: "Windows 11",
+    title: 'クライアントコンピューター001',
+    supportText: 'Windows 11',
   },
-} satisfies Meta<typeof ResourceListLink>;
-export default meta;
-type Story = StoryObj<typeof meta>;
+} satisfies Meta<typeof ResourceListLink>
+export default meta
+type Story = StoryObj<typeof meta>
 
 /**
  * リソースリスト（リンク）<br>
@@ -34,16 +34,16 @@ type Story = StoryObj<typeof meta>;
  */
 export const Base: Story = {
   args: {
-    title: "クライアントコンピューター001",
-    supportText: "Windows 11",
-    to: "#",
-    linkTag: "a",
+    title: 'クライアントコンピューター001',
+    supportText: 'Windows 11',
+    to: '#',
+    linkTag: 'a',
   },
   render: (args) => ({
     components: { ResourceListLink },
     setup() {
-      const props = computed(() => args);
-      return { props: props.value };
+      const props = computed(() => args)
+      return { props: props.value }
     },
     template: `
       <ResourceListLink :title="props.title" :supportText="props.supportText" :to="props.to" :linkTag="props.linkTag">
@@ -55,7 +55,7 @@ export const Base: Story = {
       </ResourceListLink>
     `,
   }),
-};
+}
 
 /**
  * リソースリスト（リンク）<br>
@@ -63,41 +63,41 @@ export const Base: Story = {
  */
 export const List: Story = {
   args: {
-    title: "クライアントコンピューター001",
-    supportText: "Windows 11",
-    to: "#",
-    linkTag: "a",
+    title: 'クライアントコンピューター001',
+    supportText: 'Windows 11',
+    to: '#',
+    linkTag: 'a',
   },
   render: () => ({
     components: { ResourceListLink },
     setup() {
       const list = [
         {
-          title: "クライアントコンピューター001",
-          supportText: "Windows 11",
-          to: "#",
-          linkTag: "a",
+          title: 'クライアントコンピューター001',
+          supportText: 'Windows 11',
+          to: '#',
+          linkTag: 'a',
         },
         {
-          title: "クライアントコンピューター002",
-          supportText: "Windows 11",
-          to: "#",
-          linkTag: "a",
+          title: 'クライアントコンピューター002',
+          supportText: 'Windows 11',
+          to: '#',
+          linkTag: 'a',
         },
         {
-          title: "ゲストユーザー用クライアントコンピューター_001",
-          supportText: "macOS",
-          to: "#",
-          linkTag: "a",
+          title: 'ゲストユーザー用クライアントコンピューター_001',
+          supportText: 'macOS',
+          to: '#',
+          linkTag: 'a',
         },
         {
-          title: "ゲスト端末",
-          supportText: "不明",
-          to: "#",
-          linkTag: "a",
+          title: 'ゲスト端末',
+          supportText: '不明',
+          to: '#',
+          linkTag: 'a',
         },
-      ];
-      return { list };
+      ]
+      return { list }
     },
     template: `
       <ResourceListLink v-for="item in list" :title="item.title" :supportText="item.supportText" :to="item.to" :linkTag="item.linkTag">
@@ -109,4 +109,4 @@ export const List: Story = {
       </ResourceListLink>
     `,
   }),
-};
+}

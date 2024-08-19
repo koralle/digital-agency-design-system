@@ -1,29 +1,29 @@
 <script lang="ts" setup>
-import { computed } from "vue";
-import Icon from "./Icon.vue";
-import iconSelector from "@/assets/images/icon_selector.svg";
-import { getRandomString } from "../utils/getRandomString";
+import { computed } from 'vue'
+import Icon from './Icon.vue'
+import iconSelector from '@/assets/images/icon_selector.svg'
+import { getRandomString } from '../utils/getRandomString'
 
 type Props = {
   /** 値（v-modelでも使える） */
-  modelValue: string | number;
+  modelValue: string | number
   /** インプットのラベルです */
-  label?: string;
+  label?: string
   /** セレクターの選択肢です */
-  options: { label: string; value: string | number }[];
+  options: { label: string; value: string | number }[]
   /** 内容を補足するサポートテキスト */
-  supportText?: string;
+  supportText?: string
   /** エラー時に表示するテキスト */
-  errorText?: string;
+  errorText?: string
   /** 必須かどうか。未指定の場合はfalse */
-  isRequired?: boolean;
+  isRequired?: boolean
   /** 妥当性 */
-  isValid?: boolean;
+  isValid?: boolean
   /** フォーカスアウト時のコールバック関数 */
-  onBlur?: () => void;
+  onBlur?: () => void
   /** ボタンが非活性状態か。未指定の場合はfalse */
-  isDisabled?: boolean;
-};
+  isDisabled?: boolean
+}
 
 const props = withDefaults(defineProps<Props>(), {
   label: undefined,
@@ -33,36 +33,42 @@ const props = withDefaults(defineProps<Props>(), {
   isValid: true,
   onBlur: undefined,
   isDisabled: false,
-});
+})
 
-const model = defineModel<string>();
+const model = defineModel<string>()
 
 // aria-describledby用のエラー文言のid名です
-const errorIdName = `selector${getRandomString()}`;
+const errorIdName = `selector${getRandomString()}`
 
 // 状態に応じたクラス名を返します
 const stateClassName = computed<string | null>(() => {
   if (props.isDisabled) {
-    return "isDisabled";
+    return 'isDisabled'
   }
   if (!props.isValid) {
-    return "isInvalid";
+    return 'isInvalid'
   }
-  return null;
-});
+  return null
+})
 </script>
 <template>
   <div :class="stateClassName">
     <label class="selectorWrapper">
-      <span v-if="props.label !== undefined" class="labelWrapper"
+      <span
+        v-if="props.label !== undefined"
+        class="labelWrapper"
         ><span class="label">{{ props.label }}</span
-        ><span class="requiredText" :class="isRequired ? null : 'optional'">{{
-          isRequired ? "必須" : "任意"
-        }}</span></span
+        ><span
+          class="requiredText"
+          :class="isRequired ? null : 'optional'"
+          >{{ isRequired ? '必須' : '任意' }}</span
+        ></span
       >
-      <span v-if="props.supportText !== undefined" class="supportText">{{
-        props.supportText
-      }}</span>
+      <span
+        v-if="props.supportText !== undefined"
+        class="supportText"
+        >{{ props.supportText }}</span
+      >
       <div class="selectorBox">
         <select
           v-model="model"
@@ -104,7 +110,7 @@ const stateClassName = computed<string | null>(() => {
   </div>
 </template>
 <style scoped lang="scss">
-@use "@/assets/style/utils/utils.scss" as *;
+@use '@/assets/style/utils/utils.scss' as *;
 
 .selectorBox {
   position: relative;

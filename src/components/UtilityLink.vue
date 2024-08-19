@@ -1,22 +1,22 @@
 <script setup lang="ts">
-import Icon from "./Icon.vue";
-import externalIcon from "@/assets/images/icon_external.svg";
+import Icon from './Icon.vue'
+import externalIcon from '@/assets/images/icon_external.svg'
 
-import { LinkTag, useLink } from "../composables/useLinkComponent";
+import { LinkTag, useLink } from '../composables/useLinkComponent'
 type Props = {
-  linkTag?: LinkTag;
-  url?: string;
-  iconUrl?: string;
-  target?: "_blank";
-};
+  linkTag?: LinkTag
+  url?: string
+  iconUrl?: string
+  target?: '_blank'
+}
 const props = withDefaults(defineProps<Props>(), {
-  linkTag: "a",
-  url: "/",
+  linkTag: 'a',
+  url: '/',
   iconUrl: undefined,
   target: undefined,
-});
-const isExternal = props.target === "_blank";
-const { LinkComponent } = useLink({ tag: props.linkTag });
+})
+const isExternal = props.target === '_blank'
+const { LinkComponent } = useLink({ tag: props.linkTag })
 </script>
 <template>
   <LinkComponent

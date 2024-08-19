@@ -1,36 +1,36 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import Icon from "./Icon.vue";
-import { LinkTag, useLink } from "../composables/useLinkComponent";
-import { useDropDownAnimation } from "../composables/useDropDownAnimation";
-import iconArrow from "@/assets/images/icon_arrow_accordion.svg";
-import iconGlobe from "@/assets/images/icon_globe.svg";
-import iconCheck from "@/assets/images/icon_check.svg";
+import { ref } from 'vue'
+import Icon from './Icon.vue'
+import { LinkTag, useLink } from '../composables/useLinkComponent'
+import { useDropDownAnimation } from '../composables/useDropDownAnimation'
+import iconArrow from '@/assets/images/icon_arrow_accordion.svg'
+import iconGlobe from '@/assets/images/icon_globe.svg'
+import iconCheck from '@/assets/images/icon_check.svg'
 
 type Props = {
   /** 言語リスト */
-  languageList: { label: string; link: string; isCurrent: boolean }[];
+  languageList: { label: string; link: string; isCurrent: boolean }[]
   /** リンクタグ */
-  linkTag: LinkTag;
+  linkTag: LinkTag
   /** サイズ */
-  size?: "small" | "large";
-};
+  size?: 'small' | 'large'
+}
 
-const props = withDefaults(defineProps<Props>(), { size: "small" });
+const props = withDefaults(defineProps<Props>(), { size: 'small' })
 
-const languageSelectorElement = ref<HTMLDetailsElement | null>(null);
-const languageListElement = ref<HTMLElement | null>(null);
-const languageItemElement = ref<HTMLElement | null>(null);
+const languageSelectorElement = ref<HTMLDetailsElement | null>(null)
+const languageListElement = ref<HTMLElement | null>(null)
+const languageItemElement = ref<HTMLElement | null>(null)
 
-const { LinkComponent } = useLink({ tag: props.linkTag });
+const { LinkComponent } = useLink({ tag: props.linkTag })
 
 const { isOpened, hasAnimation, handleDropDown } = useDropDownAnimation(
   languageSelectorElement,
   languageListElement,
   languageItemElement,
-);
+)
 
-const languageList = ref(props.languageList);
+const languageList = ref(props.languageList)
 </script>
 <template>
   <details
@@ -38,7 +38,10 @@ const languageList = ref(props.languageList);
     class="languageSelector"
     :class="[{ isOpened: isOpened }, { hasAnimation: hasAnimation }, size]"
   >
-    <summary class="summary" @click="handleDropDown">
+    <summary
+      class="summary"
+      @click="handleDropDown"
+    >
       <Icon
         :iconSrc="iconGlobe"
         :width="16"
@@ -59,8 +62,14 @@ const languageList = ref(props.languageList);
         role="img"
       />
     </summary>
-    <div ref="languageListElement" class="languageList">
-      <div ref="languageItemElement" class="languageListInner">
+    <div
+      ref="languageListElement"
+      class="languageList"
+    >
+      <div
+        ref="languageItemElement"
+        class="languageListInner"
+      >
         <ul>
           <li
             v-for="item in languageList"
@@ -79,9 +88,11 @@ const languageList = ref(props.languageList);
               role="img"
             />
 
-            <LinkComponent :to="item.link" class="link">{{
-              item.label
-            }}</LinkComponent>
+            <LinkComponent
+              :to="item.link"
+              class="link"
+              >{{ item.label }}</LinkComponent
+            >
           </li>
         </ul>
       </div>
@@ -89,7 +100,7 @@ const languageList = ref(props.languageList);
   </details>
 </template>
 <style lang="scss" scoped>
-@use "@/assets/style/utils/utils.scss" as *;
+@use '@/assets/style/utils/utils.scss' as *;
 
 .languageSelector {
   // アニメーションが有効な場合はタイミングを上書き
@@ -229,7 +240,7 @@ const languageList = ref(props.languageList);
         display: block;
         width: calc(100% + 4px);
         height: 100%;
-        content: "";
+        content: '';
       }
     }
   }

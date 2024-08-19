@@ -7,7 +7,7 @@
   </div>
 </template>
 <style lang="scss">
-@use "@/assets/style/utils/utils.scss" as *;
+@use '@/assets/style/utils/utils.scss' as *;
 
 .layoutContainer {
   container-type: inline-size;

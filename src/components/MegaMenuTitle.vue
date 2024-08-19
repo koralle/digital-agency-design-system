@@ -1,22 +1,22 @@
 <script setup lang="ts">
-import { LinkTag, useLink } from "../composables/useLinkComponent";
-import iconRight from "@/assets/images/icon_arrow_right.svg";
-import Icon from "./Icon.vue";
+import { LinkTag, useLink } from '../composables/useLinkComponent'
+import iconRight from '@/assets/images/icon_arrow_right.svg'
+import Icon from './Icon.vue'
 
 type Props = {
   /** タイトル */
-  title: string;
+  title: string
   /** テキスト */
-  text?: string;
+  text?: string
   /** リンクのタグ */
-  linkTag?: LinkTag;
+  linkTag?: LinkTag
   /** リンクのテキスト */
-  linkText?: string;
+  linkText?: string
   /** リンク先のURL */
-  linkUrl?: string;
-};
-const props = defineProps<Props>();
-const { LinkComponent } = useLink({ tag: props.linkTag });
+  linkUrl?: string
+}
+const props = defineProps<Props>()
+const { LinkComponent } = useLink({ tag: props.linkTag })
 </script>
 <template>
   <div>
@@ -37,7 +37,7 @@ const { LinkComponent } = useLink({ tag: props.linkTag });
   </div>
 </template>
 <style scoped lang="scss">
-@use "@/assets/style/utils/utils.scss" as *;
+@use '@/assets/style/utils/utils.scss' as *;
 
 .title {
   font-size: pxToRem(28);

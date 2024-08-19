@@ -1,52 +1,52 @@
-import type { Meta, StoryObj } from "@storybook/vue3";
-import Drawer from "../components/Drawer.vue";
-import Menu from "../components/Menu.vue";
-import { ref } from "vue";
-import { menuList } from "./stub/menulist";
+import type { Meta, StoryObj } from '@storybook/vue3'
+import Drawer from '../components/Drawer.vue'
+import Menu from '../components/Menu.vue'
+import { ref } from 'vue'
+import { menuList } from './stub/menulist'
 
 const meta = {
-  title: "ドロワー",
+  title: 'ドロワー',
   component: Drawer,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     isVisible: {
-      control: "boolean",
+      control: 'boolean',
     },
     isMobileOnly: {
-      control: "boolean",
+      control: 'boolean',
     },
     type: {
-      control: "radio",
-      options: ["overlay", "sidebar"],
+      control: 'radio',
+      options: ['overlay', 'sidebar'],
     },
     appearFrom: {
-      control: "selector",
-      options: ["left", "right", "top", "bottom", "none"],
+      control: 'selector',
+      options: ['left', 'right', 'top', 'bottom', 'none'],
     },
   },
   args: {
     isVisible: false,
     isMobileOnly: false,
-    type: "sidebar",
-    appearFrom: "right",
+    type: 'sidebar',
+    appearFrom: 'right',
   },
-} satisfies Meta<typeof Drawer>;
-export default meta;
-type Story = StoryObj<typeof meta>;
+} satisfies Meta<typeof Drawer>
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const Base: Story = {
   args: {
     isVisible: false,
     isMobileOnly: false,
-    type: "sidebar",
-    appearFrom: "right",
+    type: 'sidebar',
+    appearFrom: 'right',
   },
   render: (args) => ({
     components: { Drawer, Menu },
     setup: () => {
-      const isVisible = ref(false);
+      const isVisible = ref(false)
 
-      return { ...args, isVisible, menuList };
+      return { ...args, isVisible, menuList }
     },
     template: `
       <div style="overflow: hidden">
@@ -57,4 +57,4 @@ export const Base: Story = {
       </div>
     `,
   }),
-};
+}

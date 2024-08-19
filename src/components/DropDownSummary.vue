@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import iconArrow from "@/assets/images/icon_arrow_accordion.svg";
-import Icon from "./Icon.vue";
+import iconArrow from '@/assets/images/icon_arrow_accordion.svg'
+import Icon from './Icon.vue'
 type Props = {
-  summaryText: string;
-  isActive: boolean;
-  hasAnimation?: boolean;
-};
+  summaryText: string
+  isActive: boolean
+  hasAnimation?: boolean
+}
 withDefaults(defineProps<Props>(), {
   hasAnimation: true,
-});
+})
 </script>
 <template>
   <span
@@ -28,7 +28,7 @@ withDefaults(defineProps<Props>(), {
   </span>
 </template>
 <style scoped lang="scss">
-@use "@/assets/style/utils/utils.scss" as *;
+@use '@/assets/style/utils/utils.scss' as *;
 
 .dropDownSummary {
   position: relative;

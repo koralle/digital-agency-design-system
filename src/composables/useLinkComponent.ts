@@ -5,15 +5,15 @@ import {
   h,
   resolveComponent,
   SlotsType,
-} from "vue";
+} from 'vue'
 
-export type LinkTag = "a" | "router" | "nuxt" | "auto";
+export type LinkTag = 'a' | 'router' | 'nuxt' | 'auto'
 
 type Props = {
   /** 明示的にタグを指定します */
-  tag?: LinkTag;
-  target?: "_blank";
-};
+  tag?: LinkTag
+  target?: '_blank'
+}
 
 /**
  * リンク系のタグを選択します
@@ -22,26 +22,26 @@ type Props = {
  * const { LinkComponent } = useLink({tag:"nuxt"});
  * <linkComponent to="/hoge" />
  */
-export const useLink = (props: Props = { tag: "auto" }) => {
-  const Link = getLinkComponent(props.tag);
+export const useLink = (props: Props = { tag: 'auto' }) => {
+  const Link = getLinkComponent(props.tag)
 
   const render = (props: { to: string; target: string }, slots: SlotsType) => {
-    if (typeof Link === "string") {
-      return h(Link, { href: props.to, target: props.target ?? null }, slots);
+    if (typeof Link === 'string') {
+      return h(Link, { href: props.to, target: props.target ?? null }, slots)
     } else {
-      return h(Link, { to: props.to }, slots);
+      return h(Link, { to: props.to }, slots)
     }
-  };
+  }
 
   const LinkComponent: Component = defineComponent(
     (props, { slots }) => {
-      return () => render(props, slots);
+      return () => render(props, slots)
     },
     {
       props: {
         to: {
           type: String,
-          default: "/",
+          default: '/',
         },
         target: {
           type: String,
@@ -50,9 +50,9 @@ export const useLink = (props: Props = { tag: "auto" }) => {
         },
       },
     },
-  );
-  return { LinkComponent };
-};
+  )
+  return { LinkComponent }
+}
 
 /**
  * 指定されたリンクタグに対してコンポーネントが存在するか確かめ、存在すればそのリンク系コンポーネントを返します。なければ文字列"a"を返します
@@ -60,31 +60,31 @@ export const useLink = (props: Props = { tag: "auto" }) => {
 const getLinkComponent = (
   tag: LinkTag | undefined,
 ): ConcreteComponent | string => {
-  if (tag === "auto") {
-    const RouterLink = resolveComponent("RouterLink");
-    const NuxtLink = resolveComponent("NuxtLink");
-    if (NuxtLink !== "NuxtLink") {
-      return NuxtLink;
-    } else if (RouterLink !== "RouterLink") {
-      return RouterLink;
+  if (tag === 'auto') {
+    const RouterLink = resolveComponent('RouterLink')
+    const NuxtLink = resolveComponent('NuxtLink')
+    if (NuxtLink !== 'NuxtLink') {
+      return NuxtLink
+    } else if (RouterLink !== 'RouterLink') {
+      return RouterLink
     } else {
-      return "a";
+      return 'a'
     }
-  } else if (tag === "router") {
-    const RouterLink = resolveComponent("RouterLink");
-    if (RouterLink !== "RouterLink") {
-      return RouterLink;
+  } else if (tag === 'router') {
+    const RouterLink = resolveComponent('RouterLink')
+    if (RouterLink !== 'RouterLink') {
+      return RouterLink
     } else {
-      return "a";
+      return 'a'
     }
-  } else if (tag === "nuxt") {
-    const NuxtLink = resolveComponent("NuxtLink");
-    if (NuxtLink !== "NuxtLink") {
-      return NuxtLink;
+  } else if (tag === 'nuxt') {
+    const NuxtLink = resolveComponent('NuxtLink')
+    if (NuxtLink !== 'NuxtLink') {
+      return NuxtLink
     } else {
-      return "a";
+      return 'a'
     }
   } else {
-    return "a";
+    return 'a'
   }
-};
+}

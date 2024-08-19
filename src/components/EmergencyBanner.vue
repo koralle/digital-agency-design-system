@@ -1,46 +1,58 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import { LinkTag, useLink } from "../composables/useLinkComponent";
+import { computed } from 'vue'
+import { LinkTag, useLink } from '../composables/useLinkComponent'
 
 type Props = {
   /** タイトル */
-  title: string;
+  title: string
   /** 日付 */
-  date?: string;
+  date?: string
   /** バナー文言 */
-  description: string;
+  description: string
   /** クリック時、およびボタンのリンク先 */
-  url?: string;
+  url?: string
   /** リンク種別 */
-  linkTag?: LinkTag;
+  linkTag?: LinkTag
   /** ボタンのラベル */
-  buttonLabel?: string;
-};
-const props = defineProps<Props>();
+  buttonLabel?: string
+}
+const props = defineProps<Props>()
 
-const { LinkComponent } = useLink({ tag: props.linkTag });
+const { LinkComponent } = useLink({ tag: props.linkTag })
 
 // ラッパー要素のタグ
 const wrapperTag = computed(() => {
   if (props.url !== undefined) {
-    return LinkComponent;
+    return LinkComponent
   } else {
-    return "div";
+    return 'div'
   }
-});
+})
 </script>
 <template>
-  <div class="emergencyBannerWrapper" :class="{ withLink: url !== undefined }">
-    <component :is="wrapperTag" class="emergencyBanner">
+  <div
+    class="emergencyBannerWrapper"
+    :class="{ withLink: url !== undefined }"
+  >
+    <component
+      :is="wrapperTag"
+      class="emergencyBanner"
+    >
       <h2 class="title">{{ title }}</h2>
-      <p v-if="date" class="date">
+      <p
+        v-if="date"
+        class="date"
+      >
         {{ date }}
       </p>
       <p class="description">
         {{ description }}
       </p>
       <slot></slot>
-      <div v-if="url && buttonLabel" class="buttonWrapper">
+      <div
+        v-if="url && buttonLabel"
+        class="buttonWrapper"
+      >
         <div class="button custom medium">
           <span class="labelText">{{ buttonLabel }}</span>
         </div>
@@ -49,8 +61,8 @@ const wrapperTag = computed(() => {
   </div>
 </template>
 <style lang="scss" scoped>
-@use "@/assets/style/utils/utils.scss" as *;
-@use "./styles/basicButtonStyle.scss";
+@use '@/assets/style/utils/utils.scss' as *;
+@use './styles/basicButtonStyle.scss';
 
 .emergencyBanner {
   display: block;
@@ -126,7 +138,7 @@ const wrapperTag = computed(() => {
     width: 100%;
     height: 100%;
     min-height: 44px;
-    content: "";
+    content: '';
     border-radius: 8px;
     outline: 4px solid var(--color-status-alert);
     outline-offset: 2px;

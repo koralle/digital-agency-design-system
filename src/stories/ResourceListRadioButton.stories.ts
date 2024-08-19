@@ -1,34 +1,34 @@
-import type { StoryObj } from "@storybook/vue3";
-import ResourceListRadioButton from "../components/ResourceListRadioButton.vue";
-import { computed, ref } from "vue";
-import { GenericMeta } from "../types/GenericMeta";
+import type { StoryObj } from '@storybook/vue3'
+import ResourceListRadioButton from '../components/ResourceListRadioButton.vue'
+import { computed, ref } from 'vue'
+import { GenericMeta } from '../types/GenericMeta'
 
 const meta = {
-  title: "リソースリスト（ラジオボタン）",
+  title: 'リソースリスト（ラジオボタン）',
   component: ResourceListRadioButton,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     label: {
-      control: "text",
+      control: 'text',
     },
     title: {
-      control: "text",
+      control: 'text',
     },
     supportText: {
-      control: "text",
+      control: 'text',
     },
     subLabel: {
-      control: "text",
+      control: 'text',
     },
   },
   args: {
-    title: "会議室A",
-    supportText: "25階North",
-    subLabel: "利用中",
+    title: '会議室A',
+    supportText: '25階North',
+    subLabel: '利用中',
   },
-} satisfies GenericMeta<typeof ResourceListRadioButton<string>>;
-export default meta;
-type Story = StoryObj<typeof meta>;
+} satisfies GenericMeta<typeof ResourceListRadioButton<string>>
+export default meta
+type Story = StoryObj<typeof meta>
 
 /**
  * リソースリスト（チェックボックス）<br>
@@ -36,19 +36,19 @@ type Story = StoryObj<typeof meta>;
  */
 export const Base: Story = {
   args: {
-    title: "会議室A",
-    supportText: "25階North",
-    subLabel: "利用中",
-    value: "選択肢",
-    modelValue: "選択肢",
-    name: "test",
+    title: '会議室A',
+    supportText: '25階North',
+    subLabel: '利用中',
+    value: '選択肢',
+    modelValue: '選択肢',
+    name: 'test',
   },
   render: (args) => ({
     components: { ResourceListRadioButton },
     setup: () => {
-      const checked = ref([]);
-      const props = computed(() => args);
-      return { checked, props: props.value };
+      const checked = ref([])
+      const props = computed(() => args)
+      return { checked, props: props.value }
     },
     template: `
       <div>
@@ -65,7 +65,7 @@ export const Base: Story = {
       </div>
     `,
   }),
-};
+}
 
 /**
  * リソースリスト（チェックボックス）<br>
@@ -73,65 +73,65 @@ export const Base: Story = {
  */
 export const Link: Story = {
   args: {
-    title: "会議室A",
-    supportText: "25階North",
-    subLabel: "利用中",
-    value: "選択肢",
-    modelValue: "選択肢",
-    name: "test",
+    title: '会議室A',
+    supportText: '25階North',
+    subLabel: '利用中',
+    value: '選択肢',
+    modelValue: '選択肢',
+    name: 'test',
   },
   render: () => ({
     components: { ResourceListRadioButton },
     setup: () => {
-      const checked = ref([]);
+      const checked = ref([])
       const list = [
         {
-          title: "会議室A",
-          supportText: "25階North",
-          value: "選択肢1",
-          modelValue: "選択肢",
-          name: "test",
+          title: '会議室A',
+          supportText: '25階North',
+          value: '選択肢1',
+          modelValue: '選択肢',
+          name: 'test',
         },
         {
-          title: "会議室B",
-          supportText: "25階West",
-          subLabel: "利用中",
-          value: "選択肢2",
-          modelValue: "選択肢",
-          name: "test",
+          title: '会議室B',
+          supportText: '25階West',
+          subLabel: '利用中',
+          value: '選択肢2',
+          modelValue: '選択肢',
+          name: 'test',
         },
         {
-          title: "会議室C",
-          supportText: "27階East",
-          value: "選択肢3",
-          modelValue: "選択肢",
-          name: "test",
+          title: '会議室C',
+          supportText: '27階East',
+          value: '選択肢3',
+          modelValue: '選択肢',
+          name: 'test',
         },
         {
-          title: "会議室D",
-          supportText: "28階North",
-          subLabel: "利用中",
-          value: "選択肢4",
-          modelValue: "選択肢",
-          name: "test",
+          title: '会議室D',
+          supportText: '28階North',
+          subLabel: '利用中',
+          value: '選択肢4',
+          modelValue: '選択肢',
+          name: 'test',
         },
         {
-          title: "会議室E",
-          supportText: "28階East",
-          subLabel: "利用中",
-          value: "選択肢5",
-          modelValue: "選択肢",
-          name: "test",
+          title: '会議室E',
+          supportText: '28階East',
+          subLabel: '利用中',
+          value: '選択肢5',
+          modelValue: '選択肢',
+          name: 'test',
         },
         {
-          title: "会議室F",
-          supportText: "29階East",
-          value: "選択肢6",
-          modelValue: "選択肢",
-          name: "test",
+          title: '会議室F',
+          supportText: '29階East',
+          value: '選択肢6',
+          modelValue: '選択肢',
+          name: 'test',
         },
-      ];
-      return { checked, list };
+      ]
+      return { checked, list }
     },
     template: `
       <div>
@@ -149,4 +149,4 @@ export const Link: Story = {
       </div>
     `,
   }),
-};
+}

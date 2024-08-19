@@ -1,79 +1,83 @@
 <script lang="ts" setup>
-import { computed } from "vue";
-import { getRandomString } from "../utils/getRandomString";
+import { computed } from 'vue'
+import { getRandomString } from '../utils/getRandomString'
 
 type Props = {
   /** 値（v-modelでも使える） */
-  modelValue: string;
+  modelValue: string
   /** インプットのラベルです */
-  label: string;
+  label: string
   /** テキスト入力のタイプです。未指定の場合はtextになります */
   type?:
-    | "text"
-    | "email"
-    | "tel"
-    | "number"
-    | "password"
-    | "date"
-    | "datetime-local"
-    | "search"
-    | "url"
-    | "week";
+    | 'text'
+    | 'email'
+    | 'tel'
+    | 'number'
+    | 'password'
+    | 'date'
+    | 'datetime-local'
+    | 'search'
+    | 'url'
+    | 'week'
   /** プレースホルダのテキストです */
-  placeHolder?: string;
+  placeHolder?: string
   /** 内容を補足するサポートテキスト */
-  supportText?: string;
+  supportText?: string
   /** エラー時に表示するテキスト */
-  errorText?: string;
+  errorText?: string
   /** 必須かどうか。未指定の場合はfalse */
-  isRequired?: boolean;
+  isRequired?: boolean
   /** 妥当性 */
-  isValid?: boolean;
+  isValid?: boolean
   /** フォーカスアウト時のコールバック関数 */
-  onBlur?: () => void;
+  onBlur?: () => void
   /** ボタンが非活性状態か。未指定の場合はfalse */
-  isDisabled?: boolean;
-};
+  isDisabled?: boolean
+}
 
 const props = withDefaults(defineProps<Props>(), {
-  type: "text",
+  type: 'text',
   isRequired: false,
   isValid: true,
-  placeHolder: "",
+  placeHolder: '',
   isDisabled: false,
   supportText: undefined,
   errorText: undefined,
   onBlur: undefined,
-});
+})
 
-const model = defineModel<string>();
+const model = defineModel<string>()
 
 // aria-describledby用のエラー文言のid名です
-const errorIdName = `textInput${getRandomString()}`;
+const errorIdName = `textInput${getRandomString()}`
 
 // 状態に応じたクラス名を返します
 const stateClassName = computed<string | null>(() => {
   if (props.isDisabled) {
-    return "isDisabled";
+    return 'isDisabled'
   }
   if (!props.isValid) {
-    return "isInvalid";
+    return 'isInvalid'
   }
-  return null;
-});
+  return null
+})
 </script>
 <template>
   <div :class="stateClassName">
     <label class="textInputWrapper">
       <span class="labelWrapper"
         ><span class="label">{{ props.label }}</span
-        ><span class="requiredText" :class="isRequired ? null : 'optional'">{{
-          isRequired ? "必須" : "任意"
-        }}</span></span
+        ><span
+          class="requiredText"
+          :class="isRequired ? null : 'optional'"
+          >{{ isRequired ? '必須' : '任意' }}</span
+        ></span
       >
-      <span v-if="props.supportText !== undefined" class="supportText">{{
-        props.supportText
-      }}</span>
+      <span
+        v-if="props.supportText !== undefined"
+        class="supportText"
+        >{{ props.supportText }}</span
+      >
       <input
         v-model="model"
         class="textInput"
@@ -98,7 +102,7 @@ const stateClassName = computed<string | null>(() => {
 </template>
 
 <style lang="scss" scoped>
-@use "@/assets/style/utils/utils.scss" as *;
+@use '@/assets/style/utils/utils.scss' as *;
 
 .textInputWrapper {
   display: flex;

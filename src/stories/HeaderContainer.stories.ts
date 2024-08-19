@@ -1,28 +1,28 @@
-import type { Meta, StoryObj } from "@storybook/vue3";
-import HeaderContainer from "../components/HeaderContainer.vue";
+import type { Meta, StoryObj } from '@storybook/vue3'
+import HeaderContainer from '../components/HeaderContainer.vue'
 
 const meta = {
-  title: "ヘッダーコンテナ",
+  title: 'ヘッダーコンテナ',
   component: HeaderContainer,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     type: {
-      control: "radio",
-      options: ["full", "slim"],
+      control: 'radio',
+      options: ['full', 'slim'],
     },
   },
   args: {
-    type: "full",
+    type: 'full',
   },
-} satisfies Meta<typeof HeaderContainer>;
-export default meta;
-type Story = StoryObj<typeof meta>;
+} satisfies Meta<typeof HeaderContainer>
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const Base: Story = {
   render: (args) => ({
     components: { HeaderContainer },
     setup: () => {
-      return { ...args };
+      return { ...args }
     },
     template: `
     <HeaderContainer :type="type">
@@ -33,16 +33,16 @@ export const Base: Story = {
     </HeaderContainer>
     `,
   }),
-};
+}
 
 export const Slim: Story = {
   args: {
-    type: "slim",
+    type: 'slim',
   },
   render: (args) => ({
     components: { HeaderContainer },
     setup: () => {
-      return { ...args };
+      return { ...args }
     },
     template: `
     <HeaderContainer :type="type">
@@ -53,4 +53,4 @@ export const Slim: Story = {
     </HeaderContainer>
     `,
   }),
-};
+}

@@ -1,69 +1,69 @@
-import type { Meta, StoryObj } from "@storybook/vue3";
-import Divider from "../components/Divider.vue";
+import type { Meta, StoryObj } from '@storybook/vue3'
+import Divider from '../components/Divider.vue'
 
 const meta = {
-  title: "ディバイダー",
+  title: 'ディバイダー',
   component: Divider,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     weight: {
-      control: "select",
+      control: 'select',
       options: [1, 2, 3, 4],
     },
     color: {
-      control: "radio",
-      options: ["default", "medium", "dark"],
+      control: 'radio',
+      options: ['default', 'medium', 'dark'],
     },
     borderStyle: {
-      control: "radio",
-      options: ["solid", "dash"],
+      control: 'radio',
+      options: ['solid', 'dash'],
     },
   },
   args: {
     weight: 2,
-    color: "default",
-    borderStyle: "solid",
+    color: 'default',
+    borderStyle: 'solid',
   },
-} satisfies Meta<typeof Divider>;
-export default meta;
-type Story = StoryObj<typeof meta>;
+} satisfies Meta<typeof Divider>
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const Base: Story = {
   args: {
     weight: 2,
-    color: "default",
-    borderStyle: "solid",
+    color: 'default',
+    borderStyle: 'solid',
   },
-};
+}
 
 export const Dash: Story = {
   args: {
     weight: 2,
-    color: "default",
-    borderStyle: "dash",
+    color: 'default',
+    borderStyle: 'dash',
   },
-};
+}
 
 export const MediumColor: Story = {
   args: {
     weight: 2,
-    color: "medium",
-    borderStyle: "solid",
+    color: 'medium',
+    borderStyle: 'solid',
   },
-};
+}
 
 export const Bold: Story = {
   args: {
     weight: 4,
-    color: "default",
-    borderStyle: "solid",
+    color: 'default',
+    borderStyle: 'solid',
   },
-};
+}
 
 export const Thin: Story = {
   args: {
     weight: 1,
-    color: "default",
-    borderStyle: "solid",
+    color: 'default',
+    borderStyle: 'solid',
   },
-};
+}

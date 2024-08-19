@@ -1,29 +1,29 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import { getYearList } from "../utils/getYearList";
+import { computed } from 'vue'
+import { getYearList } from '../utils/getYearList'
 
 type Props = {
   /** 年の値（v-model:yearで使える） */
-  year: number | null;
+  year: number | null
   /** 月の値（v-model:monthで使える） */
-  month: number | null;
+  month: number | null
   /** 日の値（v-model:dayで使える） */
-  day: number | null;
+  day: number | null
   /** 年月日のラベルです */
-  label?: string;
+  label?: string
   /** 内容を補足するサポートテキスト */
-  supportText?: string;
+  supportText?: string
   /** 必須かどうか。未指定の場合はfalse */
-  isRequired?: boolean;
+  isRequired?: boolean
   /** 妥当性 */
-  isValid?: boolean;
+  isValid?: boolean
   /** フォーカスアウト時のコールバック関数 */
-  onBlur?: () => void;
+  onBlur?: () => void
   /** ボタンが非活性状態か。未指定の場合はfalse */
-  isDisabled?: boolean;
+  isDisabled?: boolean
   /** 選択肢の年の配列。省略した場合は1900〜今年まで */
-  yearList?: number[];
-};
+  yearList?: number[]
+}
 
 const props = withDefaults(defineProps<Props>(), {
   label: undefined,
@@ -34,66 +34,89 @@ const props = withDefaults(defineProps<Props>(), {
   isDisabled: false,
   defaultYear: undefined,
   yearList: undefined,
-});
+})
 
-const modelYear = defineModel<number | null>("year");
-const modelMonth = defineModel<number | null>("month");
-const modelDay = defineModel<number | null>("day");
+const modelYear = defineModel<number | null>('year')
+const modelMonth = defineModel<number | null>('month')
+const modelDay = defineModel<number | null>('day')
 
 // 年数の配列
-const basicYearList = getYearList();
+const basicYearList = getYearList()
 
 const yaerList = computed(() => {
   if (props.yearList === undefined) {
-    return basicYearList;
+    return basicYearList
   }
-  return props.yearList;
-});
+  return props.yearList
+})
 
 // 日数を小の月・大の月に合わせて算出します
 const maxDays = computed(() => {
   if (!modelMonth.value) {
-    return 31;
+    return 31
   }
   if (modelMonth.value === 2) {
-    return 28;
+    return 28
   } else if ([4, 6, 9, 11].includes(modelMonth.value)) {
-    return 30;
+    return 30
   }
-  return 31;
-});
+  return 31
+})
 </script>
 <template>
   <fieldset>
     <legend v-if="props.label !== undefined">
       <span class="labelWrapper"
         ><span class="label">{{ props.label }}</span
-        ><span class="requiredText" :class="isRequired ? null : 'optional'">{{
-          isRequired ? "必須" : "任意"
-        }}</span></span
+        ><span
+          class="requiredText"
+          :class="isRequired ? null : 'optional'"
+          >{{ isRequired ? '必須' : '任意' }}</span
+        ></span
       >
     </legend>
     <p class="supportText">{{ props.supportText }}</p>
     <div class="ymdWrapper">
       <label class="selectorWrapper">
-        <select v-model="modelYear" class="selector year">
-          <option v-for="item in yaerList" :key="item" :value="item">
+        <select
+          v-model="modelYear"
+          class="selector year"
+        >
+          <option
+            v-for="item in yaerList"
+            :key="item"
+            :value="item"
+          >
             {{ item }}
           </option>
         </select>
         <span class="unit">年</span>
       </label>
       <label class="selectorWrapper">
-        <select v-model="modelMonth" class="selector">
-          <option v-for="item in 12" :key="item" :value="item">
+        <select
+          v-model="modelMonth"
+          class="selector"
+        >
+          <option
+            v-for="item in 12"
+            :key="item"
+            :value="item"
+          >
             {{ item }}
           </option>
         </select>
         <span class="unit">月</span>
       </label>
       <label class="selectorWrapper">
-        <select v-model="modelDay" class="selector">
-          <option v-for="item in maxDays" :key="item" :value="item">
+        <select
+          v-model="modelDay"
+          class="selector"
+        >
+          <option
+            v-for="item in maxDays"
+            :key="item"
+            :value="item"
+          >
             {{ item }}
           </option>
         </select>
@@ -103,7 +126,7 @@ const maxDays = computed(() => {
   </fieldset>
 </template>
 <style lang="scss" scoped>
-@use "@/assets/style/utils/utils.scss" as *;
+@use '@/assets/style/utils/utils.scss' as *;
 
 fieldset {
   display: block;
@@ -165,7 +188,7 @@ fieldset {
   color: var(--color-text-body);
   appearance: none;
   background-color: transparent;
-  background-image: url("@/assets/images/icon_selector.svg");
+  background-image: url('@/assets/images/icon_selector.svg');
   background-repeat: no-repeat;
   background-position: right 14px top 50%;
   background-size: 8px;

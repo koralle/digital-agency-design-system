@@ -1,51 +1,51 @@
 <script setup lang="ts">
-import { LinkTag, useLink } from "../composables/useLinkComponent";
-import MenuAccordion from "./MenuAccordion.vue";
+import { LinkTag, useLink } from '../composables/useLinkComponent'
+import MenuAccordion from './MenuAccordion.vue'
 
-type ItemType = "link" | "accordion";
+type ItemType = 'link' | 'accordion'
 
 export type Link = {
-  to: string;
-  text: string;
-  selected?: boolean;
-};
+  to: string
+  text: string
+  selected?: boolean
+}
 
 export type Accordion = {
-  accordionTitle: string;
-  hasIcon?: boolean;
-  linkList: Link[];
-  hasGap?: boolean;
-};
+  accordionTitle: string
+  hasIcon?: boolean
+  linkList: Link[]
+  hasGap?: boolean
+}
 
 type ItemDetail = {
-  link: Link;
-  accordion: Accordion;
-};
+  link: Link
+  accordion: Accordion
+}
 
 type ItemList = {
-  type: ItemType;
-  item: ItemDetail[ItemType];
-};
+  type: ItemType
+  item: ItemDetail[ItemType]
+}
 
 type CategoryList = {
-  categoryName: string;
-  itemList: ItemList[];
-};
+  categoryName: string
+  itemList: ItemList[]
+}
 
 type Props = {
-  menuList?: CategoryList[] | Link[];
-  linkTag?: LinkTag;
-  hasIcon?: boolean;
-  hasGap?: boolean;
-};
+  menuList?: CategoryList[] | Link[]
+  linkTag?: LinkTag
+  hasIcon?: boolean
+  hasGap?: boolean
+}
 const props = withDefaults(defineProps<Props>(), {
   menuList: undefined,
   hasIcon: false,
-  linkTag: "a",
+  linkTag: 'a',
   hasGap: false,
-});
+})
 
-const { LinkComponent } = useLink({ tag: props.linkTag });
+const { LinkComponent } = useLink({ tag: props.linkTag })
 </script>
 <template>
   <div class="menu">
@@ -61,7 +61,10 @@ const { LinkComponent } = useLink({ tag: props.linkTag });
           <p class="categoryName">
             {{ menuItem.categoryName }}
           </p>
-          <ul class="menuList" :class="{ hasGap: hasGap }">
+          <ul
+            class="menuList"
+            :class="{ hasGap: hasGap }"
+          >
             <li
               v-for="(linkItem, index2) in menuItem.itemList"
               :key="index2"
@@ -87,7 +90,11 @@ const { LinkComponent } = useLink({ tag: props.linkTag });
         </div>
       </div>
 
-      <ul v-else class="menuList" :class="{ hasGap: hasGap }">
+      <ul
+        v-else
+        class="menuList"
+        :class="{ hasGap: hasGap }"
+      >
         <li
           v-for="(menuItem, index) in menuList as Link[]"
           :key="index"
@@ -106,7 +113,7 @@ const { LinkComponent } = useLink({ tag: props.linkTag });
   </div>
 </template>
 <style lang="scss" scoped>
-@use "@/assets/style/utils/utils.scss" as *;
+@use '@/assets/style/utils/utils.scss' as *;
 
 .category {
   margin-bottom: 24px;

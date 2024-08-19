@@ -1,51 +1,51 @@
-import type { Meta, StoryObj } from "@storybook/vue3";
-import YMDSelctor from "../components/YMDSelector.vue";
+import type { Meta, StoryObj } from '@storybook/vue3'
+import YMDSelctor from '../components/YMDSelector.vue'
 
 const meta = {
-  title: "年月日セレクター",
+  title: '年月日セレクター',
   component: YMDSelctor,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     year: {
-      control: "number",
+      control: 'number',
     },
     month: {
-      control: "number",
+      control: 'number',
     },
     day: {
-      control: "number",
+      control: 'number',
     },
     yearList: {
-      control: "object",
+      control: 'object',
       options: [2020, 2021, 2022, 2023, 2024],
     },
     label: {
-      control: "text",
+      control: 'text',
     },
     supportText: {
-      control: "text",
+      control: 'text',
     },
     isRequired: {
-      control: "boolean",
+      control: 'boolean',
     },
     isValid: {
-      control: "boolean",
+      control: 'boolean',
     },
     isDisabled: {
-      control: "boolean",
+      control: 'boolean',
     },
   },
   args: {},
-} satisfies Meta<typeof YMDSelctor>;
-export default meta;
-type Story = StoryObj<typeof meta>;
+} satisfies Meta<typeof YMDSelctor>
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const Base: Story = {
   args: {
     year: null,
     month: null,
     day: null,
-    label: "生年月日",
-    supportText: "月を選択してから日を選んでください",
+    label: '生年月日',
+    supportText: '月を選択してから日を選んでください',
   },
-};
+}

@@ -1,37 +1,40 @@
 <script lang="ts" setup>
-import iconFirstPage from "@/assets/images/icon_firstPage.svg";
-import iconEndPage from "@/assets/images/icon_endPage.svg";
-import iconArrowLeft from "@/assets/images/icon_arrow_left.svg";
-import iconArrowRight from "@/assets/images/icon_arrow_right.svg";
-import Icon from "./Icon.vue";
+import iconFirstPage from '@/assets/images/icon_firstPage.svg'
+import iconEndPage from '@/assets/images/icon_endPage.svg'
+import iconArrowLeft from '@/assets/images/icon_arrow_left.svg'
+import iconArrowRight from '@/assets/images/icon_arrow_right.svg'
+import Icon from './Icon.vue'
 type Props = {
   /** 見た目のタイプ */
-  type?: "simple" | "basic";
+  type?: 'simple' | 'basic'
   /** 現在のページ */
-  current: number;
+  current: number
   /** 最小ページ */
-  min: number;
+  min: number
   /** 最大ページ */
-  max: number;
+  max: number
   /** ページ番号をクリックしたときの処理 */
-  onClickNumber: (n: number) => void;
+  onClickNumber: (n: number) => void
   /** 次のページをクリックしたときの処理 */
-  onClickNext: () => void;
+  onClickNext: () => void
   /** 前のページをクリックしたときの処理 */
-  onClickPrevious: () => void;
+  onClickPrevious: () => void
   /** 一番最初へのページをクリックしたときの処理 */
-  onClickFirst: () => void;
+  onClickFirst: () => void
   /** 一番最後へのページをクリックしたときの処理 */
-  onClickEnd: () => void;
-};
+  onClickEnd: () => void
+}
 withDefaults(defineProps<Props>(), {
-  type: "basic",
-});
+  type: 'basic',
+})
 </script>
 <template>
   <div :class="type">
     <div class="pagination">
-      <button class="fistPage" @click="onClickFirst">
+      <button
+        class="fistPage"
+        @click="onClickFirst"
+      >
         <Icon
           :iconSrc="iconFirstPage"
           :width="24"
@@ -43,7 +46,10 @@ withDefaults(defineProps<Props>(), {
           class="iconBack"
         />
       </button>
-      <button class="previous" @click="onClickPrevious">
+      <button
+        class="previous"
+        @click="onClickPrevious"
+      >
         <Icon
           :iconSrc="iconArrowLeft"
           :width="24"
@@ -55,7 +61,12 @@ withDefaults(defineProps<Props>(), {
           class="iconBack"
         />
       </button>
-      <div v-if="current - 4 >= min" class="dot dotPrevious">...</div>
+      <div
+        v-if="current - 4 >= min"
+        class="dot dotPrevious"
+      >
+        ...
+      </div>
       <button
         v-if="current - 3 >= min"
         class="pageNumber"
@@ -105,8 +116,16 @@ withDefaults(defineProps<Props>(), {
       >
         {{ current + 3 }}
       </button>
-      <div v-if="current + 4 <= max" class="dot dotNext">...</div>
-      <button class="next" @click="onClickNext">
+      <div
+        v-if="current + 4 <= max"
+        class="dot dotNext"
+      >
+        ...
+      </div>
+      <button
+        class="next"
+        @click="onClickNext"
+      >
         <Icon
           :iconSrc="iconArrowRight"
           :width="24"
@@ -118,7 +137,10 @@ withDefaults(defineProps<Props>(), {
           class="iconNext"
         />
       </button>
-      <button class="endPage" @click="onClickEnd">
+      <button
+        class="endPage"
+        @click="onClickEnd"
+      >
         <Icon
           :iconSrc="iconEndPage"
           :width="24"
@@ -134,7 +156,7 @@ withDefaults(defineProps<Props>(), {
   </div>
 </template>
 <style lang="scss" scoped>
-@use "@/assets/style/utils/utils.scss" as *;
+@use '@/assets/style/utils/utils.scss' as *;
 
 .pagination {
   display: grid;

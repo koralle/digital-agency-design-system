@@ -1,25 +1,25 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import { useDropDownAnimation } from "../composables/useDropDownAnimation";
-import { Accordion } from "./Menu.vue";
-import Icon from "./Icon.vue";
-import { LinkTag, useLink } from "../composables/useLinkComponent";
-import iconArrow from "@/assets/images/icon_arrow_accordion.svg";
+import { ref } from 'vue'
+import { useDropDownAnimation } from '../composables/useDropDownAnimation'
+import { Accordion } from './Menu.vue'
+import Icon from './Icon.vue'
+import { LinkTag, useLink } from '../composables/useLinkComponent'
+import iconArrow from '@/assets/images/icon_arrow_accordion.svg'
 
-const accordionElement = ref<HTMLDetailsElement | null>(null);
-const contentsElement = ref<HTMLElement | null>(null);
-const contentsInnerElement = ref<HTMLElement | null>(null);
+const accordionElement = ref<HTMLDetailsElement | null>(null)
+const contentsElement = ref<HTMLElement | null>(null)
+const contentsInnerElement = ref<HTMLElement | null>(null)
 
 const { isOpened, hasAnimation, handleDropDown } = useDropDownAnimation(
   accordionElement,
   contentsElement,
   contentsInnerElement,
-);
+)
 
-type Props = Accordion & { linkTag: LinkTag };
+type Props = Accordion & { linkTag: LinkTag }
 
-const props = defineProps<Props>();
-const { LinkComponent } = useLink({ tag: props.linkTag });
+const props = defineProps<Props>()
+const { LinkComponent } = useLink({ tag: props.linkTag })
 </script>
 <template>
   <details
@@ -30,7 +30,10 @@ const { LinkComponent } = useLink({ tag: props.linkTag });
   >
     <summary class="summary">
       {{ accordionTitle }}
-      <div v-if="hasIcon" class="icon">
+      <div
+        v-if="hasIcon"
+        class="icon"
+      >
         <Icon
           class="dropDownIcon"
           :iconSrc="iconArrow"
@@ -42,9 +45,20 @@ const { LinkComponent } = useLink({ tag: props.linkTag });
         />
       </div>
     </summary>
-    <div ref="contentsElement" class="menuListWrapper">
-      <ul ref="contentsInnerElement" class="menuList" :class="{ hasGap }">
-        <li v-for="(item, index) in linkList" :key="index" class="menuItem">
+    <div
+      ref="contentsElement"
+      class="menuListWrapper"
+    >
+      <ul
+        ref="contentsInnerElement"
+        class="menuList"
+        :class="{ hasGap }"
+      >
+        <li
+          v-for="(item, index) in linkList"
+          :key="index"
+          class="menuItem"
+        >
           <LinkComponent
             :to="item.to"
             class="link"

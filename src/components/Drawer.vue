@@ -1,19 +1,19 @@
 <script setup lang="ts">
 type Props = {
   /** ドロワーを表示するかどうか */
-  isVisible: boolean;
+  isVisible: boolean
   /** モバイルのみでの表示か */
-  isMobileOnly?: boolean;
+  isMobileOnly?: boolean
   /** 表示タイプ */
-  type?: "overlay" | "sidebar";
+  type?: 'overlay' | 'sidebar'
   /** 出現方向 */
-  appearFrom?: "left" | "right" | "top" | "bottom" | "none";
-};
+  appearFrom?: 'left' | 'right' | 'top' | 'bottom' | 'none'
+}
 const props = withDefaults(defineProps<Props>(), {
   isMobileOnly: true,
-  appearFrom: "right",
-  type: "sidebar",
-});
+  appearFrom: 'right',
+  type: 'sidebar',
+})
 </script>
 <template>
   <div
@@ -23,13 +23,16 @@ const props = withDefaults(defineProps<Props>(), {
       appearFrom,
     ]"
   >
-    <div class="drawerContainer" :class="[appearFrom, type]">
+    <div
+      class="drawerContainer"
+      :class="[appearFrom, type]"
+    >
       <slot></slot>
     </div>
   </div>
 </template>
 <style lang="scss" scoped>
-@use "@/assets/style/utils/utils.scss" as *;
+@use '@/assets/style/utils/utils.scss' as *;
 
 .drawer {
   position: relative;
@@ -51,7 +54,7 @@ const props = withDefaults(defineProps<Props>(), {
     width: 100%;
     height: 100%;
     visibility: hidden;
-    content: "";
+    content: '';
     background-color: rgba(0, 0, 0, 5%);
     opacity: 0;
     transition:

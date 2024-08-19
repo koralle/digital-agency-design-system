@@ -1,89 +1,89 @@
-import type { Meta, StoryObj } from "@storybook/vue3";
-import Menu from "../components/Menu.vue";
+import type { Meta, StoryObj } from '@storybook/vue3'
+import Menu from '../components/Menu.vue'
 
 const meta = {
-  title: "メニュー",
+  title: 'メニュー',
   component: Menu,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     menuList: {
-      control: "object",
+      control: 'object',
     },
     hasIcon: {
-      control: "boolean",
+      control: 'boolean',
     },
     hasGap: {
-      control: "boolean",
+      control: 'boolean',
     },
     linkTag: {
-      control: "text",
+      control: 'text',
     },
   },
   args: {
     menuList: [
       {
-        categoryName: "カテゴリー",
+        categoryName: 'カテゴリー',
         itemList: [
-          { type: "link", item: { to: "!#", text: "メニュー" } },
-          { type: "link", item: { to: "!#", text: "メニュー" } },
-          { type: "link", item: { to: "!#", text: "メニュー" } },
+          { type: 'link', item: { to: '!#', text: 'メニュー' } },
+          { type: 'link', item: { to: '!#', text: 'メニュー' } },
+          { type: 'link', item: { to: '!#', text: 'メニュー' } },
         ],
       },
     ],
     hasIcon: false,
     hasGap: true,
-    linkTag: "a",
+    linkTag: 'a',
   },
-} satisfies Meta<typeof Menu>;
-export default meta;
-type Story = StoryObj<typeof meta>;
+} satisfies Meta<typeof Menu>
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const Base: Story = {
   args: {
     menuList: [
       {
-        categoryName: "カテゴリー",
+        categoryName: 'カテゴリー',
         itemList: [
-          { type: "link", item: { to: "!#", text: "メニュー" } },
-          { type: "link", item: { to: "!#", text: "メニュー" } },
+          { type: 'link', item: { to: '!#', text: 'メニュー' } },
+          { type: 'link', item: { to: '!#', text: 'メニュー' } },
           {
-            type: "link",
-            item: { to: "!#", text: "メニュー", selected: true },
+            type: 'link',
+            item: { to: '!#', text: 'メニュー', selected: true },
           },
         ],
       },
     ],
     hasIcon: false,
     hasGap: false,
-    linkTag: "a",
+    linkTag: 'a',
   },
-};
+}
 
 export const Accordion: Story = {
   args: {
     menuList: [
       {
-        categoryName: "カテゴリー",
+        categoryName: 'カテゴリー',
         itemList: [
           {
-            type: "accordion",
+            type: 'accordion',
             item: {
-              accordionTitle: "アコーディオン",
+              accordionTitle: 'アコーディオン',
               hasIcon: true,
               linkList: [
-                { to: "!#", text: "メニュー" },
-                { to: "!#", text: "メニュー" },
-                { to: "!#", text: "メニュー", selected: true },
+                { to: '!#', text: 'メニュー' },
+                { to: '!#', text: 'メニュー' },
+                { to: '!#', text: 'メニュー', selected: true },
               ],
             },
           },
-          { type: "link", item: { to: "!#", text: "メニュー" } },
-          { type: "link", item: { to: "!#", text: "メニュー" } },
+          { type: 'link', item: { to: '!#', text: 'メニュー' } },
+          { type: 'link', item: { to: '!#', text: 'メニュー' } },
         ],
       },
     ],
     hasIcon: true,
     hasGap: false,
-    linkTag: "a",
+    linkTag: 'a',
   },
-};
+}
