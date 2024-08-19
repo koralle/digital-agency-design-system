@@ -1,254 +1,254 @@
-import type { Meta, StoryObj } from "@storybook/vue3";
-import NotificationBanner from "../components/NotificationBanner.vue";
+import type { Meta, StoryObj } from '@storybook/vue3'
+import NotificationBanner from '../components/NotificationBanner.vue'
 
 const meta = {
-  title: "ノーティフィケーションバナー",
+  title: 'ノーティフィケーションバナー',
   component: NotificationBanner,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     style: {
-      control: "radio",
-      options: ["standard", "colorChip"],
+      control: 'radio',
+      options: ['standard', 'colorChip'],
     },
     type: {
-      control: "select",
-      options: ["success", "error", "warning", "info1", "info2"],
+      control: 'select',
+      options: ['success', 'error', 'warning', 'info1', 'info2'],
     },
     title: {
-      control: "text",
+      control: 'text',
     },
     description: {
-      control: "text",
+      control: 'text',
     },
     customIconSrc: {
-      control: "text",
+      control: 'text',
     },
     date: {
-      control: "text",
+      control: 'text',
     },
     url: {
-      control: "text",
+      control: 'text',
     },
     primaryButtonLabel: {
-      control: "text",
+      control: 'text',
     },
     secondaryButtonLabel: {
-      control: "text",
+      control: 'text',
     },
   },
   args: {
-    style: "standard",
-    title: "登録手続きは全て完了しました",
-    type: "success",
+    style: 'standard',
+    title: '登録手続きは全て完了しました',
+    type: 'success',
   },
-} satisfies Meta<typeof NotificationBanner>;
-export default meta;
-type Story = StoryObj<typeof meta>;
+} satisfies Meta<typeof NotificationBanner>
+export default meta
+type Story = StoryObj<typeof meta>
 
 /**
  * サクセス
  */
 export const Success: Story = {
   args: {
-    title: "登録手続きは全て完了しました",
+    title: '登録手続きは全て完了しました',
     description:
-      "ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。",
-    type: "success",
-    date: "2024年1月1日",
+      'ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。',
+    type: 'success',
+    date: '2024年1月1日',
   },
-};
+}
 
 /**
  * サクセス（カラーチップ）
  */
 export const SuccessColorChip: Story = {
   args: {
-    title: "登録手続きは全て完了しました",
-    style: "colorChip",
+    title: '登録手続きは全て完了しました',
+    style: 'colorChip',
     description:
-      "ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。",
-    type: "success",
-    date: "2024年1月1日",
+      'ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。',
+    type: 'success',
+    date: '2024年1月1日',
   },
-};
+}
 
 /**
  * エラー
  */
 export const Error: Story = {
   args: {
-    title: "操作を完了できませんでした",
+    title: '操作を完了できませんでした',
     description:
-      "ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。",
-    type: "error",
+      'ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。',
+    type: 'error',
   },
-};
+}
 
 /**
  * エラー（カラーチップ）
  */
 export const ErrorColorChip: Story = {
   args: {
-    title: "操作を完了できませんでした",
-    style: "colorChip",
+    title: '操作を完了できませんでした',
+    style: 'colorChip',
     description:
-      "ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。",
-    type: "error",
+      'ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。',
+    type: 'error',
   },
-};
+}
 
 /**
  * ワーニング
  */
 export const Warning: Story = {
   args: {
-    title: "偽SNSアカウントにご注意ください",
+    title: '偽SNSアカウントにご注意ください',
     description:
-      "ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。",
-    type: "warning",
+      'ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。',
+    type: 'warning',
   },
-};
+}
 
 /**
  * ワーニング（カラーチップ）
  */
 export const WarningColorChip: Story = {
   args: {
-    title: "偽SNSアカウントにご注意ください",
-    style: "colorChip",
+    title: '偽SNSアカウントにご注意ください',
+    style: 'colorChip',
     description:
-      "ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。",
-    type: "warning",
+      'ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。',
+    type: 'warning',
   },
-};
+}
 
 /**
  * 情報提示1
  */
 export const Info1: Story = {
   args: {
-    title: "登録期間が延長されました",
+    title: '登録期間が延長されました',
     description:
-      "ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。",
-    type: "info1",
+      'ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。',
+    type: 'info1',
   },
-};
+}
 
 /**
  * 情報提示1（カラーチップ）
  */
 export const Info1ColorChip: Story = {
   args: {
-    title: "登録期間が延長されました",
-    style: "colorChip",
+    title: '登録期間が延長されました',
+    style: 'colorChip',
     description:
-      "ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。",
-    type: "info1",
+      'ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。',
+    type: 'info1',
   },
-};
+}
 
 /**
  * 情報提示2
  */
 export const Info2: Story = {
   args: {
-    title: "登録期間が延長されました",
+    title: '登録期間が延長されました',
     description:
-      "ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。",
-    type: "info2",
+      'ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。',
+    type: 'info2',
   },
-};
+}
 
 /**
  * 情報提示2（カラーチップ）
  */
 export const Info2ColorChip: Story = {
   args: {
-    title: "登録期間が延長されました",
-    style: "colorChip",
+    title: '登録期間が延長されました',
+    style: 'colorChip',
     description:
-      "ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。",
-    type: "info2",
+      'ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。',
+    type: 'info2',
   },
-};
+}
 
 /**
  * ボタン付き
  */
 export const WithButton: Story = {
   args: {
-    title: "登録期間が延長されました",
+    title: '登録期間が延長されました',
     description:
-      "ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。",
-    type: "success",
-    primaryButtonLabel: "延長期間を確認して承諾する",
+      'ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。',
+    type: 'success',
+    primaryButtonLabel: '延長期間を確認して承諾する',
   },
-};
+}
 
 /**
  * 2ボタン付き
  */
 export const With2Buttons: Story = {
   args: {
-    title: "登録期間が延長されました",
+    title: '登録期間が延長されました',
     description:
-      "ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。",
-    type: "success",
-    primaryButtonLabel: "延長期間を確認して承諾する",
-    secondaryButtonLabel: "期間の変更",
+      'ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。',
+    type: 'success',
+    primaryButtonLabel: '延長期間を確認して承諾する',
+    secondaryButtonLabel: '期間の変更',
   },
-};
+}
 
 /**
  * 閉じるボタン付き
  */
 export const HasClose: Story = {
   args: {
-    title: "登録期間が延長されました",
+    title: '登録期間が延長されました',
     description:
-      "ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。",
-    type: "info2",
+      'ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。',
+    type: 'info2',
     hasClose: true,
   },
-};
+}
 
 /**
  * リンク付き（全体がリンク）
  */
 export const HasLink: Story = {
   args: {
-    title: "登録期間が延長されました",
+    title: '登録期間が延長されました',
     description:
-      "ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。",
-    type: "info2",
-    url: "#!",
+      'ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。',
+    type: 'info2',
+    url: '#!',
   },
-};
+}
 
 /**
  * リンク付き（タイトルとボタンがリンク）
  */
 export const HasLinkWithButton: Story = {
   args: {
-    title: "登録期間が延長されました",
+    title: '登録期間が延長されました',
     description:
-      "ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。",
-    type: "success",
-    url: "#!",
-    primaryButtonLabel: "延長期間を確認して承諾する",
+      'ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。',
+    type: 'success',
+    url: '#!',
+    primaryButtonLabel: '延長期間を確認して承諾する',
     onClickPrimary: undefined,
   },
-};
+}
 
 /**
  * リンク付き（ボタンなし。全体がリンク）
  */
 export const HasLinkWithNoButtons: Story = {
   args: {
-    title: "登録期間が延長されました",
+    title: '登録期間が延長されました',
     description:
-      "ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。",
-    type: "success",
-    url: "#!",
+      'ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。ダミーテキストは、デザインの作成時に使用される仮の文章です。',
+    type: 'success',
+    url: '#!',
   },
-};
+}

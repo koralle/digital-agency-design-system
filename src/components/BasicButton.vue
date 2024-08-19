@@ -1,32 +1,32 @@
 <script lang="ts" setup>
-import { CustomColor, useButtonColor } from "../composables/useButtonColor";
+import { CustomColor, useButtonColor } from '../composables/useButtonColor'
 
 type Props = {
   /** ボタンのテキストです */
-  label: string;
+  label: string
   /** ボタンのタイプです。未指定の場合はprimaryになります */
-  type?: "primary" | "secondary" | "tertiary" | "custom";
+  type?: 'primary' | 'secondary' | 'tertiary' | 'custom'
   /** ボタンのサイズです。未指定の場合はmediumになります */
-  size?: "large" | "medium" | "small" | "x-small";
+  size?: 'large' | 'medium' | 'small' | 'x-small'
   /** 非活性かどうか？ */
-  disabled?: boolean;
+  disabled?: boolean
   /** カスタムカラー。個別で指定したい場合 */
-  customColor?: CustomColor;
-};
+  customColor?: CustomColor
+}
 
 type Emits = {
   /** クリック時のイベントハンドラ */
-  click: [];
-};
+  click: []
+}
 
-const emits = defineEmits<Emits>();
+const emits = defineEmits<Emits>()
 
 const props = withDefaults(defineProps<Props>(), {
-  type: "primary",
-  size: "medium",
+  type: 'primary',
+  size: 'medium',
   disabled: false,
   customColor: undefined,
-});
+})
 
 const {
   customBackgroundColor,
@@ -38,7 +38,7 @@ const {
   customActiveBackgroundColor,
   customActiveLabelColor,
   customActiveBorderColor,
-} = useButtonColor(props.customColor);
+} = useButtonColor(props.customColor)
 </script>
 <template>
   <button
@@ -52,8 +52,8 @@ const {
 </template>
 
 <style lang="scss" scoped>
-@use "@/assets/style/utils/utils.scss" as *;
-@use "./styles/basicButtonStyle.scss";
+@use '@/assets/style/utils/utils.scss' as *;
+@use './styles/basicButtonStyle.scss';
 
 .button {
   &.custom {

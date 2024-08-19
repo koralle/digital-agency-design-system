@@ -1,57 +1,57 @@
 <script lang="ts" setup>
-import { watch } from "vue";
-import BasicButton from "../components/BasicButton.vue";
-import Layout from "../components/Layout.vue";
-import { useScrollLock } from "../composables/useScrollLock";
+import { watch } from 'vue'
+import BasicButton from '../components/BasicButton.vue'
+import Layout from '../components/Layout.vue'
+import { useScrollLock } from '../composables/useScrollLock'
 type Props = {
   /** ダイアログタイトル */
-  title: string;
+  title: string
   /** ダイアログの補助テキスト */
-  text: string;
+  text: string
   /** 主ボタンのラベル */
-  labelPrimary: string;
+  labelPrimary: string
   /** 副ボタンのラベル */
-  labelSecondary?: string;
+  labelSecondary?: string
   /** 表示のv-model */
-  modelValue: boolean;
+  modelValue: boolean
   /** 主ボタンのクリック時の処理 */
-  onClickPrimary: () => void;
+  onClickPrimary: () => void
   /** 副ボタンのクリック時の処理 */
-  onClickSecondary?: () => void;
-};
+  onClickSecondary?: () => void
+}
 
-const { lockScroll, releaseScroll } = useScrollLock();
+const { lockScroll, releaseScroll } = useScrollLock()
 
 const props = withDefaults(defineProps<Props>(), {
-  labelSecondary: "",
+  labelSecondary: '',
   onClickSecondary: undefined,
-});
+})
 
-const model = defineModel<boolean>();
+const model = defineModel<boolean>()
 
 const handleClickPrimary = () => {
-  props.onClickPrimary();
-  model.value = false;
-};
+  props.onClickPrimary()
+  model.value = false
+}
 
 watch(
   () => props.modelValue,
   (modelValue) => {
     if (modelValue) {
-      lockScroll();
+      lockScroll()
     } else {
-      releaseScroll();
+      releaseScroll()
     }
   },
-);
+)
 
 const handleClickSecondary = () => {
   if (!props.onClickSecondary) {
-    return;
+    return
   }
-  props.onClickSecondary();
-  model.value = false;
-};
+  props.onClickSecondary()
+  model.value = false
+}
 </script>
 <template>
   <Teleport to="body">
@@ -90,7 +90,7 @@ const handleClickSecondary = () => {
   </Teleport>
 </template>
 <style lang="scss" scoped>
-@use "@/assets/style/utils/utils.scss" as *;
+@use '@/assets/style/utils/utils.scss' as *;
 
 .modalBg {
   position: fixed;

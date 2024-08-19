@@ -1,33 +1,33 @@
-import type { Meta, StoryObj } from "@storybook/vue3";
-import ResourceListDefault from "../components/ResourceListDefault.vue";
+import type { Meta, StoryObj } from '@storybook/vue3'
+import ResourceListDefault from '../components/ResourceListDefault.vue'
 
 const meta = {
-  title: "リソースリスト（デフォルト）",
+  title: 'リソースリスト（デフォルト）',
   component: ResourceListDefault,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     label: {
-      control: "text",
+      control: 'text',
     },
     title: {
-      control: "text",
+      control: 'text',
     },
     supportText: {
-      control: "text",
+      control: 'text',
     },
     subLabel: {
-      control: "text",
+      control: 'text',
     },
   },
   args: {
-    label: "ラベル",
-    title: "リストタイトル",
-    supportText: "サポートテキスト",
-    subLabel: "サブラベル",
+    label: 'ラベル',
+    title: 'リストタイトル',
+    supportText: 'サポートテキスト',
+    subLabel: 'サブラベル',
   },
-} satisfies Meta<typeof ResourceListDefault>;
-export default meta;
-type Story = StoryObj<typeof meta>;
+} satisfies Meta<typeof ResourceListDefault>
+export default meta
+type Story = StoryObj<typeof meta>
 
 /**
  * リソースリスト（デフォルト）
@@ -36,9 +36,9 @@ type Story = StoryObj<typeof meta>;
  */
 export const Base: Story = {
   args: {
-    label: "ラベル",
-    title: "リストタイトル",
-    supportText: "サポートテキスト",
-    subLabel: "サブラベル",
+    label: 'ラベル',
+    title: 'リストタイトル',
+    supportText: 'サポートテキスト',
+    subLabel: 'サブラベル',
   },
-};
+}

@@ -1,30 +1,30 @@
 <script setup lang="ts">
-import Icon from "./Icon.vue";
-import iconHamburger from "@/assets/images/icon_hamburger.svg";
-import iconClose from "@/assets/images/icon_close.svg";
+import Icon from './Icon.vue'
+import iconHamburger from '@/assets/images/icon_hamburger.svg'
+import iconClose from '@/assets/images/icon_close.svg'
 
 type Props = {
   /** 見た目の種類 */
-  type?: "vertical" | "horizontal";
+  type?: 'vertical' | 'horizontal'
   /** クリック時のイベントハンドラ */
-  onClick?: () => void;
+  onClick?: () => void
   /** 状態に関するリアクティブな値（v-modelで使える） */
-  modelValue: boolean;
-};
+  modelValue: boolean
+}
 
 const props = withDefaults(defineProps<Props>(), {
-  type: "vertical",
+  type: 'vertical',
   onClick: undefined,
-});
+})
 
-const model = defineModel<boolean>();
+const model = defineModel<boolean>()
 
 const handleClick = () => {
-  model.value = !model.value;
+  model.value = !model.value
   if (props.onClick) {
-    props.onClick();
+    props.onClick()
   }
-};
+}
 </script>
 <template>
   <button
@@ -34,7 +34,10 @@ const handleClick = () => {
     @click="handleClick"
   >
     <Transition mode="out-in">
-      <span v-show="!model" class="buttonInner">
+      <span
+        v-show="!model"
+        class="buttonInner"
+      >
         <span class="iconWrapper">
           <Icon
             :iconSrc="iconHamburger"
@@ -48,7 +51,10 @@ const handleClick = () => {
       </span>
     </Transition>
     <Transition mode="out-in">
-      <span v-show="model" class="buttonInner">
+      <span
+        v-show="model"
+        class="buttonInner"
+      >
         <span class="iconWrapper">
           <Icon
             v-show="model"
@@ -65,7 +71,7 @@ const handleClick = () => {
   </button>
 </template>
 <style lang="scss" scoped>
-@use "@/assets/style/utils/utils.scss" as *;
+@use '@/assets/style/utils/utils.scss' as *;
 
 .hamburgerButton {
   position: relative;

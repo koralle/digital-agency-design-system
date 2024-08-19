@@ -1,29 +1,32 @@
 <script setup lang="ts">
-import Icon from "./Icon.vue";
-import iconArrowUpwards from "@/assets/images/icon_arrow_upward.svg";
+import Icon from './Icon.vue'
+import iconArrowUpwards from '@/assets/images/icon_arrow_upward.svg'
 
 type Props = {
   /** クリック時の処理 */
-  onClick?: () => void;
-};
+  onClick?: () => void
+}
 
 const props = withDefaults(defineProps<Props>(), {
   onClick: undefined,
-});
+})
 
 const handleClick = () => {
   if (props.onClick) {
-    props.onClick();
+    props.onClick()
   } else {
     window.scroll({
       top: 0,
-      behavior: "smooth",
-    });
+      behavior: 'smooth',
+    })
   }
-};
+}
 </script>
 <template>
-  <button class="scrollTopButton" @click="handleClick">
+  <button
+    class="scrollTopButton"
+    @click="handleClick"
+  >
     <Icon
       :iconSrc="iconArrowUpwards"
       :width="24"

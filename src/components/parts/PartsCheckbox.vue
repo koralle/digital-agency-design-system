@@ -1,43 +1,43 @@
 <script lang="ts" setup generic="T">
-import { computed } from "vue";
+import { computed } from 'vue'
 
 type Props = {
   /** v-modelの型です */
-  modelValue: T | T[];
+  modelValue: T | T[]
   /** 選択肢固有の値です */
-  value: T | undefined;
+  value: T | undefined
   /** name属性の値です */
-  name?: string;
+  name?: string
   /** 妥当性 */
-  isValid?: boolean;
+  isValid?: boolean
   /** ボタンが非活性状態か。未指定の場合はfalse */
-  isDisabled?: boolean;
-};
-const model = defineModel<T | T[] | undefined>();
+  isDisabled?: boolean
+}
+const model = defineModel<T | T[] | undefined>()
 
 // チェック状態を通知します
-const emits = defineEmits<{ changeCheck: [value: boolean] }>();
+const emits = defineEmits<{ changeCheck: [value: boolean] }>()
 
 const props = withDefaults(defineProps<Props>(), {
   isDisabled: false,
   name: undefined,
   isValid: true,
-});
+})
 
 // 状態に応じたクラス名を返します
 const stateClassName = computed<string | null>(() => {
   if (props.isDisabled) {
-    return "isDisabled";
+    return 'isDisabled'
   }
   if (!props.isValid) {
-    return "isInvalid";
+    return 'isInvalid'
   }
-  return null;
-});
+  return null
+})
 
 const handleChange = (e: Event) => {
-  emits("changeCheck", (e.target as HTMLInputElement).checked);
-};
+  emits('changeCheck', (e.target as HTMLInputElement).checked)
+}
 </script>
 <template>
   <input
@@ -49,7 +49,10 @@ const handleChange = (e: Event) => {
     :disabled="isDisabled"
     @change="handleChange"
   />
-  <span class="checkIcon" :class="stateClassName"></span>
+  <span
+    class="checkIcon"
+    :class="stateClassName"
+  ></span>
 </template>
 <style scoped lang="scss">
 .checkIcon {
@@ -68,8 +71,8 @@ const handleChange = (e: Event) => {
     display: block;
     width: 100%;
     height: 100%;
-    content: "";
-    background-image: url("@/assets/images/icon_check.svg");
+    content: '';
+    background-image: url('@/assets/images/icon_check.svg');
     background-position: center center;
     background-size: 18px 18px;
   }

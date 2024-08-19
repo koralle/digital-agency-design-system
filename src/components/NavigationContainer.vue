@@ -1,17 +1,17 @@
 <script setup lang="ts">
 type Props = {
-  alignItems?: "start" | "center" | "end" | "baseline";
+  alignItems?: 'start' | 'center' | 'end' | 'baseline'
   justifyContent?:
-    | "start"
-    | "center"
-    | "end"
-    | "spaceBetween"
-    | "spaceAround"
-    | "spaceEvenry";
-  gap?: "small" | "medium" | "large";
-};
+    | 'start'
+    | 'center'
+    | 'end'
+    | 'spaceBetween'
+    | 'spaceAround'
+    | 'spaceEvenry'
+  gap?: 'small' | 'medium' | 'large'
+}
 
-defineProps<Props>();
+defineProps<Props>()
 </script>
 <template>
   <nav

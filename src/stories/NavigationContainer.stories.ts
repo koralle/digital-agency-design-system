@@ -1,44 +1,44 @@
-import type { Meta, StoryObj } from "@storybook/vue3";
-import NavigationContainer from "../components/NavigationContainer.vue";
-import UtilityLink from "../components/UtilityLink.vue";
-import MenuLink from "../components/MenuLink.vue";
-import DropDown from "../components/DropDown.vue";
-import Menu from "../components/Menu.vue";
-import { menuList } from "./stub/menulist";
+import type { Meta, StoryObj } from '@storybook/vue3'
+import NavigationContainer from '../components/NavigationContainer.vue'
+import UtilityLink from '../components/UtilityLink.vue'
+import MenuLink from '../components/MenuLink.vue'
+import DropDown from '../components/DropDown.vue'
+import Menu from '../components/Menu.vue'
+import { menuList } from './stub/menulist'
 
 const meta = {
-  title: "ナビゲーションコンテナー",
+  title: 'ナビゲーションコンテナー',
   component: NavigationContainer,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     alignItems: {
-      control: "radio",
-      options: ["start", "center", "end", "baseline"],
+      control: 'radio',
+      options: ['start', 'center', 'end', 'baseline'],
     },
     justifyContent: {
-      control: "selector",
+      control: 'selector',
       options: [
-        "start",
-        "center",
-        "end",
-        "spaceBetween",
-        "spaceAround",
-        "spaceEvenry",
+        'start',
+        'center',
+        'end',
+        'spaceBetween',
+        'spaceAround',
+        'spaceEvenry',
       ],
     },
     gap: {
-      control: "radio",
-      options: ["small", "medium", "large"],
+      control: 'radio',
+      options: ['small', 'medium', 'large'],
     },
   },
   args: {
-    alignItems: "start",
-    justifyContent: "start",
-    gap: "medium",
+    alignItems: 'start',
+    justifyContent: 'start',
+    gap: 'medium',
   },
-} satisfies Meta<typeof NavigationContainer>;
-export default meta;
-type Story = StoryObj<typeof meta>;
+} satisfies Meta<typeof NavigationContainer>
+export default meta
+type Story = StoryObj<typeof meta>
 
 /**
  * ヘッダーコンテナー内部などで使うコンテナーです
@@ -56,13 +56,13 @@ export const Base: Story = {
       </NavigationContainer>
     `,
   }),
-};
+}
 
 export const MenuContainer: Story = {
   render: (args) => ({
     components: { NavigationContainer, MenuLink, DropDown, Menu },
     setup: () => {
-      return { ...args, menuList };
+      return { ...args, menuList }
     },
     template: `
       <NavigationContainer :alignItems="alignItems" :justifyContent="justifyContent" :gap="gap">
@@ -78,4 +78,4 @@ export const MenuContainer: Story = {
       </NavigationContainer>
     `,
   }),
-};
+}

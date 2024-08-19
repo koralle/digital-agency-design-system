@@ -1,20 +1,20 @@
 <script setup lang="ts">
-import { LinkTag, useLink } from "../composables/useLinkComponent";
+import { LinkTag, useLink } from '../composables/useLinkComponent'
 type Props = {
-  linkTag?: LinkTag;
-  url?: string;
-};
+  linkTag?: LinkTag
+  url?: string
+}
 const props = withDefaults(defineProps<Props>(), {
-  linkTag: "a",
-  url: "/",
-});
-const { LinkComponent } = useLink({ tag: props.linkTag });
+  linkTag: 'a',
+  url: '/',
+})
+const { LinkComponent } = useLink({ tag: props.linkTag })
 </script>
 <template>
   <LinkComponent :to="url"> <slot name="default"></slot></LinkComponent>
 </template>
 <style lang="scss" scoped>
-@use "@/assets/style/utils/utils.scss" as *;
+@use '@/assets/style/utils/utils.scss' as *;
 
 a {
   display: inline-block;

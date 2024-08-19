@@ -1,57 +1,84 @@
 <script lang="ts" setup>
-import { useLink } from "../composables/useLinkComponent";
-import type { LinkTag } from "../composables/useLinkComponent";
+import { useLink } from '../composables/useLinkComponent'
+import type { LinkTag } from '../composables/useLinkComponent'
 
 type Props = {
   /** ラベル */
-  label?: string;
+  label?: string
   /** リストタイトル */
-  title?: string;
+  title?: string
   /** ボタンが非活性状態か。未指定の場合はfalse */
-  isDisabled?: boolean;
+  isDisabled?: boolean
   /** サポートテキスト */
-  supportText?: string;
+  supportText?: string
   /** サブラベル */
-  subLabel?: string;
+  subLabel?: string
   /** リンクタグの種別 */
-  linkTag?: LinkTag;
+  linkTag?: LinkTag
   /** リンク先 */
-  to: string;
-};
+  to: string
+}
 const props = withDefaults(defineProps<Props>(), {
-  type: "button",
+  type: 'button',
   label: undefined,
   title: undefined,
   supportText: undefined,
   subLabel: undefined,
-  linkTag: "auto",
-});
+  linkTag: 'auto',
+})
 
-const { LinkComponent } = useLink({ tag: props.linkTag });
+const { LinkComponent } = useLink({ tag: props.linkTag })
 </script>
 <template>
   <div class="resourceListWrapper">
-    <LinkComponent class="resourceList link" :to="to">
-      <div v-if="$slots.frontIcon" class="frontIconWrapper">
+    <LinkComponent
+      class="resourceList link"
+      :to="to"
+    >
+      <div
+        v-if="$slots.frontIcon"
+        class="frontIconWrapper"
+      >
         <slot name="frontIcon"></slot>
       </div>
       <div>
-        <p v-if="label" class="label">{{ label }}</p>
-        <p v-if="title" class="title">{{ title }}</p>
-        <p v-if="supportText" class="supportText">{{ supportText }}</p>
+        <p
+          v-if="label"
+          class="label"
+        >
+          {{ label }}
+        </p>
+        <p
+          v-if="title"
+          class="title"
+        >
+          {{ title }}
+        </p>
+        <p
+          v-if="supportText"
+          class="supportText"
+        >
+          {{ supportText }}
+        </p>
       </div>
-      <div v-if="subLabel" class="subLabelWrapper">
+      <div
+        v-if="subLabel"
+        class="subLabelWrapper"
+      >
         <p class="subLabel">{{ subLabel }}</p>
       </div>
-      <div v-if="$slots.endIcon" class="endIconWrapper">
+      <div
+        v-if="$slots.endIcon"
+        class="endIconWrapper"
+      >
         <slot name="endIcon"></slot>
       </div>
     </LinkComponent>
   </div>
 </template>
 <style lang="scss" scoped>
-@use "@/assets/style/utils/utils.scss" as *;
-@use "./styles/resourceListStyle.scss";
+@use '@/assets/style/utils/utils.scss' as *;
+@use './styles/resourceListStyle.scss';
 
 .resourceList {
   &.link {

@@ -1,21 +1,21 @@
 <script lang="ts">
-import { h, SetupContext } from "vue";
+import { h, SetupContext } from 'vue'
 type Props = {
   /** Hxにあたる見出しレベルです */
-  headingLevel: 1 | 2 | 3 | 4 | 5 | 6;
+  headingLevel: 1 | 2 | 3 | 4 | 5 | 6
   /** デザイン上のサイズレベルです */
-  designLevel?: "XXL" | "XL" | "L" | "M" | "S" | "XS" | "XXS";
-};
+  designLevel?: 'XXL' | 'XL' | 'L' | 'M' | 'S' | 'XS' | 'XXS'
+}
 
 // デフォルトの見出しサイズです
 const defaultHeadingLevelSize = {
-  1: "L",
-  2: "M",
-  3: "S",
-  4: "XS",
-  5: "XXS",
-  6: "XXS",
-};
+  1: 'L',
+  2: 'M',
+  3: 'S',
+  4: 'XS',
+  5: 'XXS',
+  6: 'XXS',
+}
 
 /**
  * 見出しのコンポーネントです。
@@ -24,16 +24,16 @@ const defaultHeadingLevelSize = {
  * desginLevelを指定しない場合は見出しレベルに沿ったスタイルが適用されます。
  */
 const Heading = (props: Props, context: SetupContext) => {
-  const child = context.slots.default ? context.slots.default() : "";
+  const child = context.slots.default ? context.slots.default() : ''
   const designLevel =
-    props.designLevel ?? defaultHeadingLevelSize[props.headingLevel];
-  return h(`h${props.headingLevel}`, { class: `heading${designLevel}` }, child);
-};
+    props.designLevel ?? defaultHeadingLevelSize[props.headingLevel]
+  return h(`h${props.headingLevel}`, { class: `heading${designLevel}` }, child)
+}
 
-export default Heading;
+export default Heading
 </script>
 <style lang="scss" scoped>
-@use "@/assets/style/utils/utils.scss" as *;
+@use '@/assets/style/utils/utils.scss' as *;
 
 .headingXXL {
   padding: 64px 0 24px;

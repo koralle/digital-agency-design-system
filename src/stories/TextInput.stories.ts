@@ -1,54 +1,54 @@
-import type { Meta, StoryObj } from "@storybook/vue3";
-import TextInput from "../components/TextInput.vue";
+import type { Meta, StoryObj } from '@storybook/vue3'
+import TextInput from '../components/TextInput.vue'
 
 const meta = {
-  title: "テキスト入力",
+  title: 'テキスト入力',
   component: TextInput,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
-    label: { control: "text" },
+    label: { control: 'text' },
     type: {
-      control: "radio",
+      control: 'radio',
       options: [
-        "text",
-        "email",
-        "tel",
-        "number",
-        "password",
-        "date",
-        "detetime-local",
-        "search",
-        "url",
-        "week",
+        'text',
+        'email',
+        'tel',
+        'number',
+        'password',
+        'date',
+        'detetime-local',
+        'search',
+        'url',
+        'week',
       ],
     },
-    placeHolder: { control: "text" },
-    supportText: { control: "text" },
-    errorText: { control: "text" },
-    isRequired: { control: "boolean" },
-    isValid: { control: "boolean" },
-    isDisabled: { control: "boolean" },
+    placeHolder: { control: 'text' },
+    supportText: { control: 'text' },
+    errorText: { control: 'text' },
+    isRequired: { control: 'boolean' },
+    isValid: { control: 'boolean' },
+    isDisabled: { control: 'boolean' },
   },
   args: {
-    label: "ラベル",
-    type: "text",
-    placeHolder: "プレースホルダー",
-    supportText: "サポートテキスト",
-    errorText: "エラーテキスト",
+    label: 'ラベル',
+    type: 'text',
+    placeHolder: 'プレースホルダー',
+    supportText: 'サポートテキスト',
+    errorText: 'エラーテキスト',
     isRequired: false,
     isValid: true,
     isDisabled: false,
     onBlur: undefined,
-    modelValue: "",
+    modelValue: '',
   },
-} satisfies Meta<typeof TextInput>;
+} satisfies Meta<typeof TextInput>
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const Base: Story = {
   args: {
-    label: "ラベル",
-    type: "text",
+    label: 'ラベル',
+    type: 'text',
   },
-};
+}

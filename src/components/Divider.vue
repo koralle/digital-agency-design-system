@@ -1,17 +1,20 @@
 <script setup lang="ts">
 type Props = {
-  weight?: 1 | 2 | 3 | 4;
-  color?: "default" | "medium" | "dark";
-  borderStyle?: "solid" | "dash";
-};
+  weight?: 1 | 2 | 3 | 4
+  color?: 'default' | 'medium' | 'dark'
+  borderStyle?: 'solid' | 'dash'
+}
 withDefaults(defineProps<Props>(), {
   weight: 1,
-  color: "default",
-  borderStyle: "solid",
-});
+  color: 'default',
+  borderStyle: 'solid',
+})
 </script>
 <template>
-  <div class="divider" :class="[color, borderStyle, `weight${weight}`]"></div>
+  <div
+    class="divider"
+    :class="[color, borderStyle, `weight${weight}`]"
+  ></div>
 </template>
 <style lang="scss" scoped>
 // TODO カラーのアップデート

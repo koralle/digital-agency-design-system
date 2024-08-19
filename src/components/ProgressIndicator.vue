@@ -1,25 +1,25 @@
 <script lang="ts" setup>
-import spinner from "@/assets/images/icon_indicator_spinner.svg";
-import spinnerSmall from "@/assets/images/icon_indicator_spinner_small.svg";
-import linear from "@/assets/images/icon_indicator_linear.svg";
+import spinner from '@/assets/images/icon_indicator_spinner.svg'
+import spinnerSmall from '@/assets/images/icon_indicator_spinner_small.svg'
+import linear from '@/assets/images/icon_indicator_linear.svg'
 type Props = {
   /** インジケーターの種類 */
-  type: "spinner" | "spinner-small" | "linear";
+  type: 'spinner' | 'spinner-small' | 'linear'
   /** インジケーターのラベル */
-  label?: string;
+  label?: string
   /** オーバーレイ用かどうか？ */
-  isOverlay?: boolean;
+  isOverlay?: boolean
   /** ラベル位置 */
-  labelPosition?: "stacked" | "inline";
+  labelPosition?: 'stacked' | 'inline'
   /** インジケーターの幅。linearタイプのみ有効。px数を入力 */
-  width?: number;
-};
+  width?: number
+}
 withDefaults(defineProps<Props>(), {
   label: undefined,
   isOverlay: false,
-  labelPosition: "stacked",
+  labelPosition: 'stacked',
   width: undefined,
-});
+})
 </script>
 <template>
   <div
@@ -48,7 +48,10 @@ withDefaults(defineProps<Props>(), {
       />
     </div>
     <div v-if="type === 'linear'">
-      <div class="linear" :class="{ customWidth: width !== undefined }">
+      <div
+        class="linear"
+        :class="{ customWidth: width !== undefined }"
+      >
         <img
           :src="linear"
           class="linearInner lineAnimation"
@@ -58,11 +61,16 @@ withDefaults(defineProps<Props>(), {
         />
       </div>
     </div>
-    <p v-if="label !== ''" class="label">{{ label }}</p>
+    <p
+      v-if="label !== ''"
+      class="label"
+    >
+      {{ label }}
+    </p>
   </div>
 </template>
 <style lang="scss" scoped>
-@use "@/assets/style/utils/utils.scss" as *;
+@use '@/assets/style/utils/utils.scss' as *;
 
 .wrapper {
   display: flex;

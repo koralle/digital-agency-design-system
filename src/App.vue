@@ -1,255 +1,265 @@
 <script setup lang="ts">
-import Heading from "./components/Heading.vue";
-import BasicButton from "./components/BasicButton.vue";
-import { useNameInput } from "./composables/useNameInput";
-import { useTelInput } from "./composables/useTelInput";
-import { useTextAreaInput } from "./composables/useTextAreaInput";
-import RadioGroup from "./components/RadioGroup.vue";
-import CheckboxGroup from "./components/CheckboxGroup.vue";
-import Checkbox from "./components/Checkbox.vue";
-import Selector from "./components/Selector.vue";
-import { ref, watchEffect } from "vue";
-import { usePagination } from "./composables/usePagination";
-import { useBirthDate } from "./composables/useBirthDate";
-import Modal from "./components/Modal.vue";
-import Layout from "./components/Layout.vue";
-import Pankuzu from "./components/Pankuzu.vue";
-import LoginTemplate from "./templates/LoginTemplate.vue";
-import YMDSelector from "./components/YMDSelector.vue";
-import Accordion from "./components/Accordion.vue";
-import { ColorSheme, useColorScheme } from "./composables/useColorScheme";
-import LanguageSelector from "./components/LanguageSelector.vue";
-import Menu from "./components/Menu.vue";
-import MenuAccordion from "./components/MenuAccordion.vue";
-import DropDown from "./components/DropDown.vue";
-import HeaderContainer from "./components/HeaderContainer.vue";
-import UtilityLink from "./components/UtilityLink.vue";
-import NavigationContainer from "./components/NavigationContainer.vue";
-import MenuLink from "./components/MenuLink.vue";
-import HamburgerButton from "./components/HamburgerButton.vue";
-import Drawer from "./components/Drawer.vue";
-import MegaMenuContainer from "./components/MegaMenuContainer.vue";
-import DropDownSummary from "./components/DropDownSummary.vue";
-import MegaMenuTitle from "./components/MegaMenuTitle.vue";
-import Divider from "./components/Divider.vue";
-import BasicTable from "./components/BasicTable.vue";
-import { useScrollLock } from "./composables/useScrollLock";
+import Heading from './components/Heading.vue'
+import BasicButton from './components/BasicButton.vue'
+import { useNameInput } from './composables/useNameInput'
+import { useTelInput } from './composables/useTelInput'
+import { useTextAreaInput } from './composables/useTextAreaInput'
+import RadioGroup from './components/RadioGroup.vue'
+import CheckboxGroup from './components/CheckboxGroup.vue'
+import Checkbox from './components/Checkbox.vue'
+import Selector from './components/Selector.vue'
+import { ref, watchEffect } from 'vue'
+import { usePagination } from './composables/usePagination'
+import { useBirthDate } from './composables/useBirthDate'
+import Modal from './components/Modal.vue'
+import Layout from './components/Layout.vue'
+import Pankuzu from './components/Pankuzu.vue'
+import LoginTemplate from './templates/LoginTemplate.vue'
+import YMDSelector from './components/YMDSelector.vue'
+import Accordion from './components/Accordion.vue'
+import { ColorSheme, useColorScheme } from './composables/useColorScheme'
+import LanguageSelector from './components/LanguageSelector.vue'
+import Menu from './components/Menu.vue'
+import MenuAccordion from './components/MenuAccordion.vue'
+import DropDown from './components/DropDown.vue'
+import HeaderContainer from './components/HeaderContainer.vue'
+import UtilityLink from './components/UtilityLink.vue'
+import NavigationContainer from './components/NavigationContainer.vue'
+import MenuLink from './components/MenuLink.vue'
+import HamburgerButton from './components/HamburgerButton.vue'
+import Drawer from './components/Drawer.vue'
+import MegaMenuContainer from './components/MegaMenuContainer.vue'
+import DropDownSummary from './components/DropDownSummary.vue'
+import MegaMenuTitle from './components/MegaMenuTitle.vue'
+import Divider from './components/Divider.vue'
+import BasicTable from './components/BasicTable.vue'
+import { useScrollLock } from './composables/useScrollLock'
 
 const handleClick = () => {
-  console.log("click");
-};
+  console.log('click')
+}
 
 const { UseNameInputComponent: FamilyNameInput } = useNameInput({
-  label: "姓",
+  label: '姓',
   isRequired: true,
-  supportText: "住民票に記載された姓を記入します。",
-});
+  supportText: '住民票に記載された姓を記入します。',
+})
 const { UseNameInputComponent: FamilyNameKanaInput } = useNameInput({
-  label: "姓（カナ）",
+  label: '姓（カナ）',
   isRequired: false,
-  supportText: "住民票に記載された姓を記入します。",
-});
-const { UseTelInputComponent: UseTelInputComponent } = useTelInput();
+  supportText: '住民票に記載された姓を記入します。',
+})
+const { UseTelInputComponent: UseTelInputComponent } = useTelInput()
 const { UseTextAreaInputComponent } = useTextAreaInput({
-  label: "お問い合わせ詳細",
+  label: 'お問い合わせ詳細',
   isRequired: true,
-  supportText: "できる限りくわしくお書きください",
-});
+  supportText: 'できる限りくわしくお書きください',
+})
 const { UseTextAreaInputComponent: MaxCountTextArea } = useTextAreaInput({
-  label: "困っていることを教えてください",
+  label: '困っていることを教えてください',
   isRequired: true,
   maxCount: 256,
-});
+})
 
-const selected = ref<string | null>(null);
-const selected2 = ref<string | null>("3");
-const checked = ref(["2"]);
-const checked2 = ref(false);
-const selector = ref("");
+const selected = ref<string | null>(null)
+const selected2 = ref<string | null>('3')
+const checked = ref(['2'])
+const checked2 = ref(false)
+const selector = ref('')
 const prefectures = [
-  { label: "北海道", value: "Hokkaido" },
-  { label: "東京", value: "Tokyo" },
-  { label: "大阪", value: "Osaka" },
-  { label: "沖縄", value: "Okinawa" },
-];
+  { label: '北海道', value: 'Hokkaido' },
+  { label: '東京', value: 'Tokyo' },
+  { label: '大阪', value: 'Osaka' },
+  { label: '沖縄', value: 'Okinawa' },
+]
 
-const { UsePaginationComponent, pageNumber } = usePagination();
+const { UsePaginationComponent, pageNumber } = usePagination()
 
 const { UseBirthDateComponent } = useBirthDate({
-  label: "生年月日",
-  supportText: "半角数字で入力してください。",
+  label: '生年月日',
+  supportText: '半角数字で入力してください。',
   isRequired: true,
-});
+})
 
-const { lockScroll, releaseScroll } = useScrollLock();
+const { lockScroll, releaseScroll } = useScrollLock()
 
-const isShown = ref(false);
+const isShown = ref(false)
 
 const modalClick1 = () => {
-  console.log("ボタン1");
-};
+  console.log('ボタン1')
+}
 
 const modalClick2 = () => {
-  console.log("ボタン2");
-};
+  console.log('ボタン2')
+}
 
 // パンくずリスト
 const pankuzu = [
-  { text: "ホーム", url: "#!" },
-  { text: "政策", url: "#!" },
-  { text: "審議会・研究会", url: "#!" },
-  { text: "デジタル庁における入札制限等の在り方に関する検討会" },
-];
+  { text: 'ホーム', url: '#!' },
+  { text: '政策', url: '#!' },
+  { text: '審議会・研究会', url: '#!' },
+  { text: 'デジタル庁における入札制限等の在り方に関する検討会' },
+]
 
 const colorSchemeHandler = (newVal: ColorSheme | null) => {
-  console.log(newVal);
+  console.log(newVal)
   if (newVal === null) {
-    return;
+    return
   }
-  if (newVal === "light") {
-    document.body.classList.remove("color-scheme-dark");
-    document.body.classList.add("color-scheme-light");
+  if (newVal === 'light') {
+    document.body.classList.remove('color-scheme-dark')
+    document.body.classList.add('color-scheme-light')
   }
-  if (newVal === "dark") {
-    document.body.classList.remove("color-scheme-light");
-    document.body.classList.add("color-scheme-dark");
+  if (newVal === 'dark') {
+    document.body.classList.remove('color-scheme-light')
+    document.body.classList.add('color-scheme-dark')
   }
-};
+}
 
 const { changeColorSheme } = useColorScheme({
   onChange: colorSchemeHandler,
-});
+})
 
-const selectedColor = ref<ColorSheme | null>(null);
+const selectedColor = ref<ColorSheme | null>(null)
 watchEffect(() => {
-  const color = selectedColor.value;
+  const color = selectedColor.value
   if (!color) {
-    return;
+    return
   }
-  changeColorSheme(color);
-});
+  changeColorSheme(color)
+})
 
 // 年月日
-const year = ref(1980);
-const month = ref(null);
-const day = ref(null);
+const year = ref(1980)
+const month = ref(null)
+const day = ref(null)
 
 // アコーディオンの内容
 const accordionText = [
   {
-    summary: "1.ダミーテキストはどのような場合に使用されますか。",
+    summary: '1.ダミーテキストはどのような場合に使用されますか。',
     details:
-      " これはダミーテキストです。ダミーテキストは、デザインやレイアウトの作成時に使用される仮の文章です。ダミーテキストを使用すると、デザインの全体像を評価したり、テキストの配置や長さを確認したりすることができます。ダミーテキストは実際の文章ではないので、内容には意味がありません。 ",
+      ' これはダミーテキストです。ダミーテキストは、デザインやレイアウトの作成時に使用される仮の文章です。ダミーテキストを使用すると、デザインの全体像を評価したり、テキストの配置や長さを確認したりすることができます。ダミーテキストは実際の文章ではないので、内容には意味がありません。 ',
   },
   {
-    summary: "2.ダミーテキストはどのような場合に使用されますか。",
+    summary: '2.ダミーテキストはどのような場合に使用されますか。',
     details:
-      " これはダミーテキストです。ダミーテキストは、デザインやレイアウトの作成時に使用される仮の文章です。ダミーテキストを使用すると、デザインの全体像を評価したり、テキストの配置や長さを確認したりすることができます。ダミーテキストは実際の文章ではないので、内容には意味がありません。 ",
+      ' これはダミーテキストです。ダミーテキストは、デザインやレイアウトの作成時に使用される仮の文章です。ダミーテキストを使用すると、デザインの全体像を評価したり、テキストの配置や長さを確認したりすることができます。ダミーテキストは実際の文章ではないので、内容には意味がありません。 ',
   },
   {
     summary:
-      "3.ダミーテキストはどのような場合に使用されますか。ダミーテキストはどのような場合に使用されますか。ダミーテキストはどのような場合に使用されますか。",
+      '3.ダミーテキストはどのような場合に使用されますか。ダミーテキストはどのような場合に使用されますか。ダミーテキストはどのような場合に使用されますか。',
     details:
-      " これはダミーテキストです。ダミーテキストは、デザインやレイアウトの作成時に使用される仮の文章です。ダミーテキストを使用すると、デザインの全体像を評価したり、テキストの配置や長さを確認したりすることができます。ダミーテキストは実際の文章ではないので、内容には意味がありません。 ",
+      ' これはダミーテキストです。ダミーテキストは、デザインやレイアウトの作成時に使用される仮の文章です。ダミーテキストを使用すると、デザインの全体像を評価したり、テキストの配置や長さを確認したりすることができます。ダミーテキストは実際の文章ではないので、内容には意味がありません。 ',
   },
-];
+]
 
 const languageList = [
-  { label: "日本語", link: "#!", isCurrent: true },
-  { label: "English", link: "#!", isCurrent: false },
-  { label: "简体中文", link: "#!", isCurrent: false },
-  { label: "한국어", link: "#!", isCurrent: false },
-];
+  { label: '日本語', link: '#!', isCurrent: true },
+  { label: 'English', link: '#!', isCurrent: false },
+  { label: '简体中文', link: '#!', isCurrent: false },
+  { label: '한국어', link: '#!', isCurrent: false },
+]
 
-const menuList: InstanceType<typeof Menu>["menuList"] = [
+const menuList: InstanceType<typeof Menu>['menuList'] = [
   {
-    categoryName: "アイコンなし",
+    categoryName: 'アイコンなし',
     itemList: [
-      { type: "link", item: { to: "!#", text: "メニュー" } },
-      { type: "link", item: { to: "!#", text: "メニュー", selected: true } },
+      { type: 'link', item: { to: '!#', text: 'メニュー' } },
+      { type: 'link', item: { to: '!#', text: 'メニュー', selected: true } },
       {
-        type: "accordion",
+        type: 'accordion',
         item: {
-          accordionTitle: "アコーディオン",
+          accordionTitle: 'アコーディオン',
           linkList: [
-            { to: "!#", text: "メニュー" },
-            { to: "!#", text: "メニュー" },
-            { to: "!#", text: "メニュー", selected: true },
+            { to: '!#', text: 'メニュー' },
+            { to: '!#', text: 'メニュー' },
+            { to: '!#', text: 'メニュー', selected: true },
           ],
         },
       },
     ],
   },
   {
-    categoryName: "アイコンあり",
+    categoryName: 'アイコンあり',
     itemList: [
-      { type: "link", item: { to: "!#", text: "メニュー" } },
+      { type: 'link', item: { to: '!#', text: 'メニュー' } },
       {
-        type: "accordion",
+        type: 'accordion',
         item: {
-          accordionTitle: "アコーディオン",
+          accordionTitle: 'アコーディオン',
           hasIcon: true,
           linkList: [
-            { to: "!#", text: "メニュー" },
-            { to: "!#", text: "メニュー" },
-            { to: "!#", text: "メニュー" },
+            { to: '!#', text: 'メニュー' },
+            { to: '!#', text: 'メニュー' },
+            { to: '!#', text: 'メニュー' },
           ],
         },
       },
-      { type: "link", item: { to: "!#", text: "メニュー", selected: true } },
+      { type: 'link', item: { to: '!#', text: 'メニュー', selected: true } },
     ],
   },
-];
+]
 
-const menuList2: InstanceType<typeof Menu>["menuList"] = [
-  { to: "!#", text: "メニュー" },
-  { to: "!#", text: "メニュー" },
-  { to: "!#", text: "メニュー" },
-];
+const menuList2: InstanceType<typeof Menu>['menuList'] = [
+  { to: '!#', text: 'メニュー' },
+  { to: '!#', text: 'メニュー' },
+  { to: '!#', text: 'メニュー' },
+]
 
-const menuList3: InstanceType<typeof Menu>["menuList"] = [
-  { to: "!#", text: "メニュー" },
-  { to: "!#", text: "メニュー" },
-  { to: "!#", text: "メニュー" },
-  { to: "!#", text: "メニュー" },
-  { to: "!#", text: "メニュー" },
-  { to: "!#", text: "メニュー" },
-];
+const menuList3: InstanceType<typeof Menu>['menuList'] = [
+  { to: '!#', text: 'メニュー' },
+  { to: '!#', text: 'メニュー' },
+  { to: '!#', text: 'メニュー' },
+  { to: '!#', text: 'メニュー' },
+  { to: '!#', text: 'メニュー' },
+  { to: '!#', text: 'メニュー' },
+]
 
-const menuList4: InstanceType<typeof Menu>["menuList"] = [
+const menuList4: InstanceType<typeof Menu>['menuList'] = [
   {
-    categoryName: "政策",
+    categoryName: '政策',
     itemList: [
-      { type: "link", item: { to: "!#", text: "観光" } },
-      { type: "link", item: { to: "!#", text: "スポーツ支援" } },
-      { type: "link", item: { to: "!#", text: "国際化" } },
-      { type: "link", item: { to: "!#", text: "市民手続きのデジタル化" } },
-      { type: "link", item: { to: "!#", text: "子育て支援" } },
+      { type: 'link', item: { to: '!#', text: '観光' } },
+      { type: 'link', item: { to: '!#', text: 'スポーツ支援' } },
+      { type: 'link', item: { to: '!#', text: '国際化' } },
+      { type: 'link', item: { to: '!#', text: '市民手続きのデジタル化' } },
+      { type: 'link', item: { to: '!#', text: '子育て支援' } },
     ],
   },
-];
+]
 
-const isDrawerVisible = ref(false);
+const isDrawerVisible = ref(false)
 
-const isMegaMenuVisible = ref(false);
+const isMegaMenuVisible = ref(false)
 
 watchEffect(() => {
   if (isDrawerVisible.value) {
-    lockScroll();
+    lockScroll()
   } else {
-    releaseScroll();
+    releaseScroll()
   }
-});
+})
 </script>
 
 <template>
-  <div class="headerAndDrawer" :class="{ isDrawerActive: isDrawerVisible }">
+  <div
+    class="headerAndDrawer"
+    :class="{ isDrawerActive: isDrawerVisible }"
+  >
     <HeaderContainer>
       <template #logo
-        ><img src="/logo.png" width="240" height="80" class="headerLogo"
+        ><img
+          src="/logo.png"
+          width="240"
+          height="80"
+          class="headerLogo"
       /></template>
       <template #item>
-        <NavigationContainer class="headerNav" gap="small">
+        <NavigationContainer
+          class="headerNav"
+          gap="small"
+        >
           <UtilityLink to="#!">サイトポリシー</UtilityLink>
           <UtilityLink to="#!">プライバシーポリシー</UtilityLink>
           <UtilityLink to="#!">コピーライトポリシー</UtilityLink>
@@ -262,12 +272,15 @@ watchEffect(() => {
         />
       </template>
       <template #menu>
-        <NavigationContainer class="headerMenu" alignItems="end">
+        <NavigationContainer
+          class="headerMenu"
+          alignItems="end"
+        >
           <button
             class="megaMenuButton"
             @click="
               () => {
-                isMegaMenuVisible = !isMegaMenuVisible;
+                isMegaMenuVisible = !isMegaMenuVisible
               }
             "
           >
@@ -278,22 +291,36 @@ watchEffect(() => {
           </button>
           <MenuLink to="#!">政策</MenuLink>
           <DropDown summary="市民向けサービス">
-            <Menu :menuList="menuList2" linkTag="a"></Menu>
+            <Menu
+              :menuList="menuList2"
+              linkTag="a"
+            ></Menu>
           </DropDown>
           <DropDown summary="事業者向け">
-            <Menu :menuList="menuList2" linkTag="a"></Menu>
+            <Menu
+              :menuList="menuList2"
+              linkTag="a"
+            ></Menu>
           </DropDown>
           <MenuLink to="#!">採用情報</MenuLink>
           <MenuLink to="#!">ご意見・ご要望</MenuLink>
         </NavigationContainer>
       </template>
       <template #hamburger>
-        <HamburgerButton v-model="isDrawerVisible" class="headerHamburger"
+        <HamburgerButton
+          v-model="isDrawerVisible"
+          class="headerHamburger"
       /></template>
     </HeaderContainer>
-    <div class="drawerWrapper" :class="{ isActive: isDrawerVisible }">
+    <div
+      class="drawerWrapper"
+      :class="{ isActive: isDrawerVisible }"
+    >
       <Drawer :isVisible="isDrawerVisible">
-        <Menu :menuList="menuList" linkTag="a"></Menu>
+        <Menu
+          :menuList="menuList"
+          linkTag="a"
+        ></Menu>
       </Drawer>
     </div>
     <MegaMenuContainer
@@ -309,17 +336,33 @@ watchEffect(() => {
         />
       </template>
       <template #col2>
-        <Menu :menuList="menuList3" :hasGap="false" linkTag="a"></Menu>
+        <Menu
+          :menuList="menuList3"
+          :hasGap="false"
+          linkTag="a"
+        ></Menu>
       </template>
       <template #col3>
-        <Menu :menuList="menuList4" :hasGap="false" linkTag="a"></Menu>
+        <Menu
+          :menuList="menuList4"
+          :hasGap="false"
+          linkTag="a"
+        ></Menu>
       </template>
     </MegaMenuContainer>
   </div>
 
   <div class="globalWrapper">
-    <Pankuzu :list="pankuzu" linkTag="a" />
-    <Heading :headingLevel="1" designLevel="XL"> コンポーネント </Heading>
+    <Pankuzu
+      :list="pankuzu"
+      linkTag="a"
+    />
+    <Heading
+      :headingLevel="1"
+      designLevel="XL"
+    >
+      コンポーネント
+    </Heading>
     <hr />
     <Layout>
       <div class="colSpan-12">
@@ -327,8 +370,16 @@ watchEffect(() => {
 
         <Layout>
           <div class="colSpan-6">
-            <Heading :headingLevel="1" designLevel="XXL">見出しXXL</Heading>
-            <Heading :headingLevel="1" designLevel="XL">見出しXL</Heading>
+            <Heading
+              :headingLevel="1"
+              designLevel="XXL"
+              >見出しXXL</Heading
+            >
+            <Heading
+              :headingLevel="1"
+              designLevel="XL"
+              >見出しXL</Heading
+            >
             <Heading :headingLevel="1"> 見出しL </Heading>
             <Heading :headingLevel="2"> 見出しM </Heading>
             <Heading :headingLevel="3"> 見出しS </Heading>
@@ -360,12 +411,16 @@ watchEffect(() => {
                 label="ボタン"
                 @click="
                   () => {
-                    console.log('aa');
+                    console.log('aa')
                   }
                 "
               />
 
-              <BasicButton label="ボタン" disabled @click="handleClick" />
+              <BasicButton
+                label="ボタン"
+                disabled
+                @click="handleClick"
+              />
             </div>
           </div>
           <div class="colSpan-4">
@@ -424,21 +479,35 @@ watchEffect(() => {
         </div>
 
         <div class="dividerWrapper">
-          <Divider :weight="3" borderStyle="dash" />
+          <Divider
+            :weight="3"
+            borderStyle="dash"
+          />
         </div>
 
         <div class="dividerWrapper">
-          <Divider :weight="4" borderStyle="dash" color="medium" />
+          <Divider
+            :weight="4"
+            borderStyle="dash"
+            color="medium"
+          />
         </div>
       </div>
       <div class="colSpan-12">
         <Heading :headingLevel="2"> メニュー </Heading>
         <Layout>
           <div class="colSpan-4">
-            <Menu :menuList="menuList" linkTag="a"></Menu>
+            <Menu
+              :menuList="menuList"
+              linkTag="a"
+            ></Menu>
           </div>
           <div class="colSpan-4">
-            <Menu :menuList="menuList2" linkTag="a" hasIcon></Menu>
+            <Menu
+              :menuList="menuList2"
+              linkTag="a"
+              hasIcon
+            ></Menu>
           </div>
           <div class="colSpan-4">
             <Menu>
@@ -451,17 +520,33 @@ watchEffect(() => {
           </div>
           <div class="colSpan-3 menuWrapper">
             <DropDown summary="ドロップダウン">
-              <Menu :menuList="menuList2" linkTag="a"></Menu>
+              <Menu
+                :menuList="menuList2"
+                linkTag="a"
+              ></Menu>
             </DropDown>
           </div>
           <div class="colSpan-3 menuWrapper">
-            <DropDown summary="ドロップダウン" hasShadow>
-              <Menu :menuList="menuList2" linkTag="a"></Menu>
+            <DropDown
+              summary="ドロップダウン"
+              hasShadow
+            >
+              <Menu
+                :menuList="menuList2"
+                linkTag="a"
+              ></Menu>
             </DropDown>
           </div>
           <div class="colSpan-3 menuWrapper">
-            <DropDown summary="ドロップダウン" hasShadow side="right">
-              <Menu :menuList="menuList2" linkTag="a"></Menu>
+            <DropDown
+              summary="ドロップダウン"
+              hasShadow
+              side="right"
+            >
+              <Menu
+                :menuList="menuList2"
+                linkTag="a"
+              ></Menu>
             </DropDown>
           </div>
         </Layout>
@@ -568,7 +653,11 @@ watchEffect(() => {
                 name="group3"
               />
               <div>
-                <Checkbox v-model="checked2" :value="true" label="真偽値1" />
+                <Checkbox
+                  v-model="checked2"
+                  :value="true"
+                  label="真偽値1"
+                />
               </div>
             </div>
           </div>
@@ -579,7 +668,10 @@ watchEffect(() => {
         <Layout>
           <div class="colSpan-2">
             <div class="languageWrapper">
-              <LanguageSelector :languageList="languageList" linkTag="a" />
+              <LanguageSelector
+                :languageList="languageList"
+                linkTag="a"
+              />
             </div>
           </div>
         </Layout>
@@ -651,7 +743,7 @@ watchEffect(() => {
           label="モーダルを表示"
           @click="
             () => {
-              isShown = true;
+              isShown = true
             }
           "
         />
@@ -708,7 +800,12 @@ watchEffect(() => {
       </div>
     </Layout>
     <div class="templates">
-      <Heading :headingLevel="1" designLevel="XL"> テンプレート </Heading>
+      <Heading
+        :headingLevel="1"
+        designLevel="XL"
+      >
+        テンプレート
+      </Heading>
       <hr />
       <Layout>
         <div class="colSpan-12">
@@ -724,8 +821,8 @@ watchEffect(() => {
 </template>
 
 <style scoped lang="scss">
-@use "@/assets/style/utils/utils.scss" as *;
-@use "@/assets/style/typography/typography.scss";
+@use '@/assets/style/utils/utils.scss' as *;
+@use '@/assets/style/typography/typography.scss';
 
 .globalWrapper {
   max-width: 1104px;

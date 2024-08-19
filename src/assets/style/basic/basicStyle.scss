@@ -1,4 +1,4 @@
-@use "@/assets/style/utils/utils.scss" as *;
+@use '@/assets/style/utils/utils.scss' as *;
 
 * {
   box-sizing: border-box;
@@ -14,7 +14,7 @@
 }
 
 body {
-  font-family: "Noto Sans JP", sans-serif;
+  font-family: 'Noto Sans JP', sans-serif;
   color: var(--color-text-body);
   background-color: var(--color-background-primary);
 }

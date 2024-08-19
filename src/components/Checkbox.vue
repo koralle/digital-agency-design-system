@@ -1,43 +1,43 @@
 <script lang="ts" setup generic="T">
-import { computed } from "vue";
-import PartsCheckbox from "./parts/PartsCheckbox.vue";
+import { computed } from 'vue'
+import PartsCheckbox from './parts/PartsCheckbox.vue'
 
 type Props = {
   /** v-modelの型です */
-  modelValue: T | T[];
+  modelValue: T | T[]
   /** 選択肢固有の値です */
-  value: T | undefined;
+  value: T | undefined
   /** ボタンのラベルです */
-  label: string;
+  label: string
   /** name属性の値です */
-  name?: string;
+  name?: string
   /** 妥当性 */
-  isValid?: boolean;
+  isValid?: boolean
   /** ボタンが非活性状態か。未指定の場合はfalse */
-  isDisabled?: boolean;
-};
+  isDisabled?: boolean
+}
 
-const model = defineModel<T | T[] | undefined>();
+const model = defineModel<T | T[] | undefined>()
 
 const props = withDefaults(defineProps<Props>(), {
   isDisabled: false,
   isValid: true,
   name: undefined,
-});
+})
 
 // 状態に応じたクラス名を返します
 const stateClassName = computed<string | null>(() => {
   if (props.isDisabled) {
-    return "isDisabled";
+    return 'isDisabled'
   }
   if (!props.isValid) {
-    return "isInvalid";
+    return 'isInvalid'
   }
-  return null;
-});
+  return null
+})
 const handleChangeCheck = (value: boolean) => {
-  console.log(value);
-};
+  console.log(value)
+}
 </script>
 <template>
   <label :class="`${stateClassName ?? ''} `">
@@ -55,7 +55,7 @@ const handleChangeCheck = (value: boolean) => {
   </label>
 </template>
 <style lang="scss" scoped>
-@use "@/assets/style/utils/utils.scss" as *;
+@use '@/assets/style/utils/utils.scss' as *;
 
 label {
   position: relative;

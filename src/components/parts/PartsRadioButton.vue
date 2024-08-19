@@ -1,37 +1,37 @@
 <script lang="ts" setup generic="T">
-import { computed } from "vue";
+import { computed } from 'vue'
 
 type Props = {
   /** 格納するリアクティブな値（v-modelでも使える） */
-  modelValue: T;
+  modelValue: T
   /** 選択肢固有の値です */
-  radioValue: T;
+  radioValue: T
   /** name属性の値です */
-  name: string;
+  name: string
   /** 妥当性 */
-  isValid?: boolean;
+  isValid?: boolean
   /** ボタンが非活性状態か。未指定の場合はfalse */
-  isDisabled?: boolean;
+  isDisabled?: boolean
   /** フォーカススタイルを非表示にするか */
-  isHiddenFocused?: boolean;
-};
-const model = defineModel<T | undefined>();
+  isHiddenFocused?: boolean
+}
+const model = defineModel<T | undefined>()
 
 const props = withDefaults(defineProps<Props>(), {
   isDisabled: false,
   isValid: true,
   isHiddenFocused: false,
-});
+})
 
 const stateClassName = computed<string | null>(() => {
   if (props.isDisabled) {
-    return "isDisabled";
+    return 'isDisabled'
   }
   if (!props.isValid) {
-    return "isInvalid";
+    return 'isInvalid'
   }
-  return null;
-});
+  return null
+})
 </script>
 <template>
   <div class="buttonWrapper">
@@ -72,7 +72,7 @@ const stateClassName = computed<string | null>(() => {
     display: block;
     width: 9px;
     height: 9px;
-    content: "";
+    content: '';
     background-color: transparent;
     border-radius: 50%;
   }

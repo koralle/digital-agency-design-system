@@ -1,29 +1,29 @@
-import type { Meta, StoryObj } from "@storybook/vue3";
-import RadioButton from "../components/RadioButton.vue";
+import type { Meta, StoryObj } from '@storybook/vue3'
+import RadioButton from '../components/RadioButton.vue'
 
 const meta = {
-  title: "ラジオボタン（単体）",
+  title: 'ラジオボタン（単体）',
   component: RadioButton,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     radioStyle: {
-      control: "radio",
-      options: ["default", "tile"],
+      control: 'radio',
+      options: ['default', 'tile'],
     },
     radioValue: {
-      control: "text",
+      control: 'text',
     },
-    subText: { control: "text" },
-    isValid: { control: "boolean" },
-    isDisabled: { control: "boolean" },
+    subText: { control: 'text' },
+    isValid: { control: 'boolean' },
+    isDisabled: { control: 'boolean' },
   },
-} as Meta<typeof RadioButton>;
-type Story = StoryObj<typeof meta>;
+} as Meta<typeof RadioButton>
+type Story = StoryObj<typeof meta>
 
-export default meta;
+export default meta
 
 export const Base: Story = {
   args: {
-    label: "ラベル",
+    label: 'ラベル',
   },
-};
+}

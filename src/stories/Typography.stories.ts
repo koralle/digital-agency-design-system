@@ -1,11 +1,11 @@
-import type { StoryObj } from "@storybook/vue3";
-import "@/assets/style/typography/typography.scss";
+import type { StoryObj } from '@storybook/vue3'
+import '@/assets/style/typography/typography.scss'
 const meta = {
-  title: "タイポグラフィ",
-  tags: ["autodocs"],
-};
-export default meta;
-type Story = StoryObj<typeof meta>;
+  title: 'タイポグラフィ',
+  tags: ['autodocs'],
+}
+export default meta
+type Story = StoryObj<typeof meta>
 
 /**
  * ユーティリティクラスを用いたタイポグラフィ
@@ -99,4 +99,4 @@ export const Base: Story = {
     </div>
     `,
   }),
-};
+}

@@ -1,67 +1,67 @@
 <script lang="ts" setup>
-import { computed } from "vue";
-import { getRandomString } from "../utils/getRandomString";
+import { computed } from 'vue'
+import { getRandomString } from '../utils/getRandomString'
 type Props = {
   /** 値（v-modelでも使える） */
-  modelValue: string;
+  modelValue: string
   /** インプットのラベルです */
-  label: string;
+  label: string
   /** プレースホルダのテキストです */
-  placeHolder?: string;
+  placeHolder?: string
   /** 内容を補足するサポートテキスト */
-  supportText?: string | null;
+  supportText?: string | null
   /** エラー時に表示するテキスト */
-  errorText?: string | null;
+  errorText?: string | null
   /** 必須かどうか。未指定の場合はfalse */
-  isRequired?: boolean;
+  isRequired?: boolean
   /** 妥当性 */
-  isValid?: boolean;
+  isValid?: boolean
   /** 最大文字数 */
-  maxCount?: number;
+  maxCount?: number
   /** 入力された文字数 */
-  numberOfCharacters?: number;
+  numberOfCharacters?: number
   /** フォーカスアウト時のコールバック関数 */
-  onBlur?: (() => void) | undefined;
+  onBlur?: (() => void) | undefined
   /** ボタンが非活性状態か。未指定の場合はfalse */
-  isDisabled?: boolean;
-};
+  isDisabled?: boolean
+}
 
-const model = defineModel<string>();
+const model = defineModel<string>()
 
 const props = withDefaults(defineProps<Props>(), {
   isRequired: false,
   isValid: true,
-  placeHolder: "",
+  placeHolder: '',
   supportText: null,
   errorText: null,
   onBlur: undefined,
   isDisabled: false,
   maxCount: undefined,
   numberOfCharacters: 0,
-});
+})
 
 // 文字数がオーバーしているか返します
 const isOverCharacter = computed<boolean>(() => {
   if (props.maxCount == undefined || props.numberOfCharacters == undefined) {
-    return false;
+    return false
   }
 
-  return props.maxCount < props.numberOfCharacters;
-});
+  return props.maxCount < props.numberOfCharacters
+})
 
 // aria-describledby用のエラー文言のid名です
-const errorIdName = `textInput${getRandomString()}`;
+const errorIdName = `textInput${getRandomString()}`
 
 // 状態に応じたクラス名を返します
 const stateClassName = computed<string | null>(() => {
   if (props.isDisabled) {
-    return "isDisabled";
+    return 'isDisabled'
   }
   if (!props.isValid) {
-    return "isInvalid";
+    return 'isInvalid'
   }
-  return null;
-});
+  return null
+})
 </script>
 
 <template>
@@ -69,11 +69,17 @@ const stateClassName = computed<string | null>(() => {
     <label class="textAreaInputWrapper">
       <span class="labelWrapper"
         ><span class="label">{{ props.label }}</span
-        ><span v-show="props.isRequired" class="requiredText">必須</span></span
+        ><span
+          v-show="props.isRequired"
+          class="requiredText"
+          >必須</span
+        ></span
       >
-      <span v-if="props.supportText !== null" class="supportText">{{
-        props.supportText
-      }}</span>
+      <span
+        v-if="props.supportText !== null"
+        class="supportText"
+        >{{ props.supportText }}</span
+      >
       <textarea
         v-model="model"
         class="textarea"
@@ -87,9 +93,12 @@ const stateClassName = computed<string | null>(() => {
     </label>
     <div class="supportInfo">
       <span v-if="props.errorText !== null">
-        <span v-show="!props.isValid" :id="errorIdName" class="errorText">{{
-          props.errorText
-        }}</span>
+        <span
+          v-show="!props.isValid"
+          :id="errorIdName"
+          class="errorText"
+          >{{ props.errorText }}</span
+        >
       </span>
       <span
         v-if="maxCount !== undefined && numberOfCharacters !== undefined"
@@ -105,7 +114,7 @@ const stateClassName = computed<string | null>(() => {
 </template>
 
 <style lang="scss" scoped>
-@use "@/assets/style/utils/utils.scss" as *;
+@use '@/assets/style/utils/utils.scss' as *;
 
 .textInputWrapper {
   display: block;

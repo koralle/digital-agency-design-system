@@ -1,36 +1,36 @@
-import type { Meta, StoryObj } from "@storybook/vue3";
-import ResourceListButton from "../components/ResourceListButton.vue";
-import { ref } from "vue";
-import avatar from "../assets/images/icon_avatar.svg";
-import icon3Point from "../assets/images/icon_3point.svg";
+import type { Meta, StoryObj } from '@storybook/vue3'
+import ResourceListButton from '../components/ResourceListButton.vue'
+import { ref } from 'vue'
+import avatar from '../assets/images/icon_avatar.svg'
+import icon3Point from '../assets/images/icon_3point.svg'
 
 const meta = {
-  title: "リソースリスト（ボタン）",
+  title: 'リソースリスト（ボタン）',
   component: ResourceListButton,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     label: {
-      control: "text",
+      control: 'text',
     },
     title: {
-      control: "text",
+      control: 'text',
     },
     supportText: {
-      control: "text",
+      control: 'text',
     },
     subLabel: {
-      control: "text",
+      control: 'text',
     },
   },
   args: {
-    label: "ラベル",
-    title: "リストタイトル",
-    supportText: "サポートテキスト",
-    subLabel: "サブラベル",
+    label: 'ラベル',
+    title: 'リストタイトル',
+    supportText: 'サポートテキスト',
+    subLabel: 'サブラベル',
   },
-} satisfies Meta<typeof ResourceListButton>;
-export default meta;
-type Story = StoryObj<typeof meta>;
+} satisfies Meta<typeof ResourceListButton>
+export default meta
+type Story = StoryObj<typeof meta>
 
 /**
  * リソースリスト単体（ボタン）<br>
@@ -38,13 +38,13 @@ type Story = StoryObj<typeof meta>;
  */
 export const Base: Story = {
   args: {
-    label: "ラベル",
-    title: "リストタイトル",
-    supportText: "サポートテキスト",
-    subLabel: "サブラベル",
+    label: 'ラベル',
+    title: 'リストタイトル',
+    supportText: 'サポートテキスト',
+    subLabel: 'サブラベル',
     onClick: () => {},
   },
-};
+}
 
 /**
  * リソースリスト（ボタン）<br>
@@ -52,46 +52,46 @@ export const Base: Story = {
  */
 export const List: Story = {
   args: {
-    label: "ラベル",
-    title: "リストタイトル",
-    supportText: "サポートテキスト",
-    subLabel: "サブラベル",
+    label: 'ラベル',
+    title: 'リストタイトル',
+    supportText: 'サポートテキスト',
+    subLabel: 'サブラベル',
     onClick: () => {},
   },
   render: () => ({
     components: { ResourceListButton },
     setup: () => {
-      const checked = ref([]);
+      const checked = ref([])
       const resourceList = [
         {
-          title: "デジ田 太郎",
-          supportText: "taro-dejita@example.com",
-          subLabel: "2023/12/14 16:23:23",
+          title: 'デジ田 太郎',
+          supportText: 'taro-dejita@example.com',
+          subLabel: '2023/12/14 16:23:23',
         },
         {
-          title: "デジ濱 実",
-          supportText: "minoru.dejihama@example.com",
-          subLabel: "2023/12/15 08:23:57",
+          title: 'デジ濱 実',
+          supportText: 'minoru.dejihama@example.com',
+          subLabel: '2023/12/15 08:23:57',
         },
         {
-          title: "デジ山 ひかり",
-          supportText: "hikari.dejiyama@example.com",
-          subLabel: "2023/12/21 11:23:12",
+          title: 'デジ山 ひかり',
+          supportText: 'hikari.dejiyama@example.com',
+          subLabel: '2023/12/21 11:23:12',
         },
         {
-          title: "出而足 長一郎",
-          supportText: "ChoichiroDejitaru@example.com",
-          subLabel: "2023/12/09 18:23:12",
+          title: '出而足 長一郎',
+          supportText: 'ChoichiroDejitaru@example.com',
+          subLabel: '2023/12/09 18:23:12',
         },
         {
-          title: "電磁 多留子",
-          supportText: "taruko.dejitaru@example.com",
-          subLabel: "2023/12/28 06:23:12",
+          title: '電磁 多留子',
+          supportText: 'taruko.dejitaru@example.com',
+          subLabel: '2023/12/28 06:23:12',
         },
-      ];
-      const iconSrc = avatar;
-      console.log(avatar);
-      return { checked, resourceList, iconSrc, icon3Point };
+      ]
+      const iconSrc = avatar
+      console.log(avatar)
+      return { checked, resourceList, iconSrc, icon3Point }
     },
     template: `
       <div>
@@ -114,4 +114,4 @@ export const List: Story = {
       </div>
     `,
   }),
-};
+}

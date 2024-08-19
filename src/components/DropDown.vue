@@ -1,26 +1,26 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref } from 'vue'
 
-import { useDropDownAnimation } from "../composables/useDropDownAnimation";
-import DropDownSummary from "./DropDownSummary.vue";
+import { useDropDownAnimation } from '../composables/useDropDownAnimation'
+import DropDownSummary from './DropDownSummary.vue'
 
 type Props = {
-  summary: string;
-  hasShadow?: boolean;
-  side?: "left" | "right";
-};
+  summary: string
+  hasShadow?: boolean
+  side?: 'left' | 'right'
+}
 
-withDefaults(defineProps<Props>(), { side: "left" });
+withDefaults(defineProps<Props>(), { side: 'left' })
 
-const accordionElement = ref<HTMLDetailsElement | null>(null);
-const contentsElement = ref<HTMLElement | null>(null);
-const contentsInnerElement = ref<HTMLElement | null>(null);
+const accordionElement = ref<HTMLDetailsElement | null>(null)
+const contentsElement = ref<HTMLElement | null>(null)
+const contentsInnerElement = ref<HTMLElement | null>(null)
 
 const { isOpened, hasAnimation, handleDropDown } = useDropDownAnimation(
   accordionElement,
   contentsElement,
   contentsInnerElement,
-);
+)
 </script>
 <template>
   <details
@@ -33,22 +33,31 @@ const { isOpened, hasAnimation, handleDropDown } = useDropDownAnimation(
       side,
     ]"
   >
-    <summary class="summary" @click="handleDropDown">
+    <summary
+      class="summary"
+      @click="handleDropDown"
+    >
       <DropDownSummary
         :summaryText="summary"
         :isActive="isOpened ?? false"
         :hasAnimation="hasAnimation"
       />
     </summary>
-    <div ref="contentsElement" class="contents">
-      <div ref="contentsInnerElement" class="contentsInner">
+    <div
+      ref="contentsElement"
+      class="contents"
+    >
+      <div
+        ref="contentsInnerElement"
+        class="contentsInner"
+      >
         <slot></slot>
       </div>
     </div>
   </details>
 </template>
 <style lang="scss" scoped>
-@use "@/assets/style/utils/utils.scss" as *;
+@use '@/assets/style/utils/utils.scss' as *;
 
 .dropDown {
   position: relative;

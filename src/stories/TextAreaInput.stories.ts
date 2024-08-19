@@ -1,49 +1,49 @@
-import type { Meta, StoryObj } from "@storybook/vue3";
-import TextAreaInput from "../components/TextAreaInput.vue";
-import { computed, ref } from "vue";
-import { countCharacters } from "../utils/countCharacters";
+import type { Meta, StoryObj } from '@storybook/vue3'
+import TextAreaInput from '../components/TextAreaInput.vue'
+import { computed, ref } from 'vue'
+import { countCharacters } from '../utils/countCharacters'
 const meta = {
-  title: "テキストエリア",
+  title: 'テキストエリア',
   component: TextAreaInput,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
-    label: { control: "text" },
-    placeHolder: { control: "text" },
-    supportText: { control: "text" },
-    errorText: { control: "text" },
+    label: { control: 'text' },
+    placeHolder: { control: 'text' },
+    supportText: { control: 'text' },
+    errorText: { control: 'text' },
     isRequired: {
-      control: "boolean",
+      control: 'boolean',
     },
     isValid: {
-      control: "boolean",
+      control: 'boolean',
     },
     maxCount: {
-      control: "number",
+      control: 'number',
     },
     numberOfCharacters: {
-      control: "number",
+      control: 'number',
     },
     isDisabled: {
-      control: "boolean",
+      control: 'boolean',
     },
   },
   args: {
-    label: "お問い合わせ詳細",
-    supportText: "できる限りくわしくお書きください",
+    label: 'お問い合わせ詳細',
+    supportText: 'できる限りくわしくお書きください',
     isRequired: false,
     isValid: true,
     maxCount: 256,
   },
-} satisfies Meta<typeof TextAreaInput>;
+} satisfies Meta<typeof TextAreaInput>
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const Base: Story = {
   args: {
-    modelValue: "",
-    label: "お問い合わせ詳細",
-    supportText: "できる限りくわしくお書きください",
+    modelValue: '',
+    label: 'お問い合わせ詳細',
+    supportText: 'できる限りくわしくお書きください',
     isRequired: false,
     isValid: true,
     maxCount: 256,
@@ -51,9 +51,9 @@ export const Base: Story = {
   render: (args) => ({
     components: { TextAreaInput },
     setup: () => {
-      const text = ref<string>("");
-      const numberOfCharacters = computed(() => countCharacters(text.value));
-      return { text, numberOfCharacters, ...args };
+      const text = ref<string>('')
+      const numberOfCharacters = computed(() => countCharacters(text.value))
+      return { text, numberOfCharacters, ...args }
     },
     template: `
       <TextAreaInput 
@@ -68,4 +68,4 @@ export const Base: Story = {
       />
     `,
   }),
-};
+}

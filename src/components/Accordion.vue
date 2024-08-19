@@ -1,30 +1,30 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import Icon from "./Icon.vue";
-import iconArrow from "@/assets/images/icon_arrow_accordion.svg";
-import { useDropDownAnimation } from "../composables/useDropDownAnimation";
+import { ref } from 'vue'
+import Icon from './Icon.vue'
+import iconArrow from '@/assets/images/icon_arrow_accordion.svg'
+import { useDropDownAnimation } from '../composables/useDropDownAnimation'
 
 type Props = {
-  summary: string;
-  details: string;
-  hasSummaryIcon?: boolean;
-  hasDetailIcon?: boolean;
-};
+  summary: string
+  details: string
+  hasSummaryIcon?: boolean
+  hasDetailIcon?: boolean
+}
 
 withDefaults(defineProps<Props>(), {
   hasSummaryIcon: false,
   hasDetailIcon: false,
-});
+})
 
-const accordionElement = ref<HTMLDetailsElement | null>(null);
-const contentsElement = ref<HTMLElement | null>(null);
-const contentsInnerElement = ref<HTMLElement | null>(null);
+const accordionElement = ref<HTMLDetailsElement | null>(null)
+const contentsElement = ref<HTMLElement | null>(null)
+const contentsInnerElement = ref<HTMLElement | null>(null)
 
 const { isOpened, hasAnimation, handleDropDown } = useDropDownAnimation(
   accordionElement,
   contentsElement,
   contentsInnerElement,
-);
+)
 </script>
 <template>
   <div>
@@ -33,8 +33,13 @@ const { isOpened, hasAnimation, handleDropDown } = useDropDownAnimation(
       class="accordion"
       :class="[{ isOpened: isOpened }, { hasAnimation: hasAnimation }]"
     >
-      <summary class="summary" @click="handleDropDown">
-        <span v-if="hasSummaryIcon" class="icon"
+      <summary
+        class="summary"
+        @click="handleDropDown"
+      >
+        <span
+          v-if="hasSummaryIcon"
+          class="icon"
           ><slot name="summary"></slot
         ></span>
         <span class="summaryInner">{{ summary }}</span>
@@ -48,9 +53,17 @@ const { isOpened, hasAnimation, handleDropDown } = useDropDownAnimation(
           role="img"
         />
       </summary>
-      <div ref="contentsElement" class="details">
-        <div ref="contentsInnerElement" class="detailsInner">
-          <span v-if="hasDetailIcon" class="icon"
+      <div
+        ref="contentsElement"
+        class="details"
+      >
+        <div
+          ref="contentsInnerElement"
+          class="detailsInner"
+        >
+          <span
+            v-if="hasDetailIcon"
+            class="icon"
             ><slot name="detail"></slot
           ></span>
           {{ details }}
@@ -60,7 +73,7 @@ const { isOpened, hasAnimation, handleDropDown } = useDropDownAnimation(
   </div>
 </template>
 <style lang="scss" scoped>
-@use "@/assets/style/utils/utils.scss" as *;
+@use '@/assets/style/utils/utils.scss' as *;
 
 .accordion {
   border-bottom: 1px solid var(--color-border-divider);

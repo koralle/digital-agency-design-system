@@ -1,161 +1,161 @@
 <script lang="ts" setup>
-import { computed } from "vue";
-import { LinkTag, useLink } from "../composables/useLinkComponent";
-import BasicButton from "./BasicButton.vue";
-import Icon from "./Icon.vue";
-import iconClose from "@/assets/images/icon_close.svg";
-import BasicButtonLink from "./BasicButtonLink.vue";
+import { computed } from 'vue'
+import { LinkTag, useLink } from '../composables/useLinkComponent'
+import BasicButton from './BasicButton.vue'
+import Icon from './Icon.vue'
+import iconClose from '@/assets/images/icon_close.svg'
+import BasicButtonLink from './BasicButtonLink.vue'
 
 type Props = {
   /** バナースタイル */
-  style?: "standard" | "colorChip";
+  style?: 'standard' | 'colorChip'
   /** バナー種別 */
-  type: "success" | "error" | "warning" | "info1" | "info2";
+  type: 'success' | 'error' | 'warning' | 'info1' | 'info2'
   /** タイトル */
-  title: string;
+  title: string
   /** 日付 */
-  date?: string;
+  date?: string
   /** バナー文章 */
-  description: string;
+  description: string
   /** カスタムアイコン画像へのリンク */
-  customIconSrc?: string;
+  customIconSrc?: string
   /** クリック時のリンク先 */
-  url?: string;
+  url?: string
   /** リンク種別 */
-  linkTag?: LinkTag;
+  linkTag?: LinkTag
   /** 閉じるボタンの有無 */
-  hasClose?: boolean;
+  hasClose?: boolean
   /** 閉じるボタン押下時の処理 */
-  onClickClose?: () => void;
+  onClickClose?: () => void
   /** 主ボタンのラベル */
-  primaryButtonLabel?: string;
+  primaryButtonLabel?: string
   /** 主ボタンクリック時の処理 */
-  onClickPrimary?: () => void;
+  onClickPrimary?: () => void
   /** 副ボタンのラベル */
-  secondaryButtonLabel?: string;
+  secondaryButtonLabel?: string
   /** 副ボタンクリック時の処理 */
-  onClickSecondary?: () => void;
-};
+  onClickSecondary?: () => void
+}
 
 const props = withDefaults(defineProps<Props>(), {
-  style: "standard",
+  style: 'standard',
   date: undefined,
   customIconSrc: undefined,
   url: undefined,
-  linkTag: "auto",
+  linkTag: 'auto',
   hasClose: false,
   onClickClose: undefined,
   primaryButtonLabel: undefined,
   onClickPrimary: undefined,
   secondaryButtonLabel: undefined,
   onClickSecondary: undefined,
-});
+})
 
-const { LinkComponent } = useLink({ tag: props.linkTag });
+const { LinkComponent } = useLink({ tag: props.linkTag })
 
 // 主ボタンの色をバナー種別に応じて算出します
 const primaryButtonColor = computed(() => {
   if (!props.primaryButtonLabel) {
-    return undefined;
+    return undefined
   }
   switch (props.type) {
-    case "success":
+    case 'success':
       return {
-        backgroundColor: "var(--color-status-success)",
-        labelColor: "var(--color-text-onFill)",
-        hoverBackgroundColor: "var(--color-status-success-hover)",
-        hoverLabelColor: "var(--color-text-onFill)",
-      };
-    case "error":
+        backgroundColor: 'var(--color-status-success)',
+        labelColor: 'var(--color-text-onFill)',
+        hoverBackgroundColor: 'var(--color-status-success-hover)',
+        hoverLabelColor: 'var(--color-text-onFill)',
+      }
+    case 'error':
       return {
-        backgroundColor: "var(--color-status-alert)",
-        labelColor: "var(--color-text-onFill)",
-        hoverBackgroundColor: "var(--color-status-alert-hover)",
-        hoverLabelColor: "var(--color-text-onFill)",
-      };
-    case "warning":
+        backgroundColor: 'var(--color-status-alert)',
+        labelColor: 'var(--color-text-onFill)',
+        hoverBackgroundColor: 'var(--color-status-alert-hover)',
+        hoverLabelColor: 'var(--color-text-onFill)',
+      }
+    case 'warning':
       return {
-        backgroundColor: "var(--color-status-warning)",
-        labelColor: "var(--color-text-onFill)",
-        hoverBackgroundColor: "var(--color-status-warning-hover)",
-        hoverLabelColor: "var(--color-text-onFill)",
-      };
-    case "info1":
+        backgroundColor: 'var(--color-status-warning)',
+        labelColor: 'var(--color-text-onFill)',
+        hoverBackgroundColor: 'var(--color-status-warning-hover)',
+        hoverLabelColor: 'var(--color-text-onFill)',
+      }
+    case 'info1':
       return {
-        backgroundColor: "var(--color-button-normal)",
-        labelColor: "var(--color-text-onFill)",
-        hoverBackgroundColor: "var(--color-button-hover)",
-        hoverLabelColor: "var(--color-text-onFill)",
-      };
-    case "info2":
+        backgroundColor: 'var(--color-button-normal)',
+        labelColor: 'var(--color-text-onFill)',
+        hoverBackgroundColor: 'var(--color-button-hover)',
+        hoverLabelColor: 'var(--color-text-onFill)',
+      }
+    case 'info2':
       return {
-        backgroundColor: "var(--color-text-body)",
-        labelColor: "var(--color-mono-clear)",
-        hoverBackgroundColor: "var(--color-sumi-800)",
-        hoverLabelColor: "var(--color-text-onFill)",
-      };
+        backgroundColor: 'var(--color-text-body)',
+        labelColor: 'var(--color-mono-clear)',
+        hoverBackgroundColor: 'var(--color-sumi-800)',
+        hoverLabelColor: 'var(--color-text-onFill)',
+      }
     default:
-      return undefined;
+      return undefined
   }
-});
+})
 
 // 副ボタンの色をバナー種別に応じて算出します
 const secondaryButtonColor = computed(() => {
   if (!props.secondaryButtonLabel) {
-    return undefined;
+    return undefined
   }
   switch (props.type) {
-    case "success":
+    case 'success':
       return {
-        backgroundColor: "var(--color-text-onFill)",
-        borderColor: "var(--color-status-success)",
-        labelColor: "var(--color-status-success)",
+        backgroundColor: 'var(--color-text-onFill)',
+        borderColor: 'var(--color-status-success)',
+        labelColor: 'var(--color-status-success)',
         hoverBackgroundColor:
-          "var(--custom-secondary-hover-background-success)",
-        hoverBorderColor: "var(--custom-secondary-hover-border-success)",
-        hoverLabelColor: "var(--custom-secondary-hover-label-success)",
-      };
-    case "error":
+          'var(--custom-secondary-hover-background-success)',
+        hoverBorderColor: 'var(--custom-secondary-hover-border-success)',
+        hoverLabelColor: 'var(--custom-secondary-hover-label-success)',
+      }
+    case 'error':
       return {
-        backgroundColor: "var(--color-text-onFill)",
-        borderColor: "var(--color-status-alert)",
-        labelColor: "var(--color-status-alert)",
-        hoverBackgroundColor: "var(--custom-secondary-hover-background-error)",
-        hoverBorderColor: "var(--custom-secondary-hover-border-error)",
-        hoverLabelColor: "var(--custom-secondary-hover-label-error)",
-      };
-    case "warning":
+        backgroundColor: 'var(--color-text-onFill)',
+        borderColor: 'var(--color-status-alert)',
+        labelColor: 'var(--color-status-alert)',
+        hoverBackgroundColor: 'var(--custom-secondary-hover-background-error)',
+        hoverBorderColor: 'var(--custom-secondary-hover-border-error)',
+        hoverLabelColor: 'var(--custom-secondary-hover-label-error)',
+      }
+    case 'warning':
       return {
-        backgroundColor: "var(--color-text-onFill)",
-        borderColor: "var(--color-status-warning)",
-        labelColor: "var(--color-status-warning)",
+        backgroundColor: 'var(--color-text-onFill)',
+        borderColor: 'var(--color-status-warning)',
+        labelColor: 'var(--color-status-warning)',
         hoverBackgroundColor:
-          "var(--custom-secondary-hover-background-warning)",
-        hoverBorderColor: "var(--custom-secondary-hover-border-warning)",
-        hoverLabelColor: "var(--custom-secondary-hover-label-warning)",
-      };
-    case "info1":
+          'var(--custom-secondary-hover-background-warning)',
+        hoverBorderColor: 'var(--custom-secondary-hover-border-warning)',
+        hoverLabelColor: 'var(--custom-secondary-hover-label-warning)',
+      }
+    case 'info1':
       return {
-        backgroundColor: "var(--color-text-onFill)",
-        borderColor: "var(--color-button-normal)",
-        labelColor: "var(--color-button-normal)",
-        hoverBackgroundColor: "var(--custom-secondary-hover-background-info1)",
-        hoverBorderColor: "var(--custom-secondary-hover-border-info1)",
-        hoverLabelColor: "var(--custom-secondary-hover-label-info1)",
-      };
-    case "info2":
+        backgroundColor: 'var(--color-text-onFill)',
+        borderColor: 'var(--color-button-normal)',
+        labelColor: 'var(--color-button-normal)',
+        hoverBackgroundColor: 'var(--custom-secondary-hover-background-info1)',
+        hoverBorderColor: 'var(--custom-secondary-hover-border-info1)',
+        hoverLabelColor: 'var(--custom-secondary-hover-label-info1)',
+      }
+    case 'info2':
       return {
-        backgroundColor: "transparent",
-        borderColor: "var(--color-text-body)",
-        labelColor: "var(--color-text-body)",
-        hoverBackgroundColor: "var(--custom-secondary-hover-background-info2)",
-        hoverBorderColor: "var(--custom-secondary-hover-border-info2)",
-        hoverLabelColor: "var(--custom-secondary-hover-label-info2)",
-      };
+        backgroundColor: 'transparent',
+        borderColor: 'var(--color-text-body)',
+        labelColor: 'var(--color-text-body)',
+        hoverBackgroundColor: 'var(--custom-secondary-hover-background-info2)',
+        hoverBorderColor: 'var(--custom-secondary-hover-border-info2)',
+        hoverLabelColor: 'var(--custom-secondary-hover-label-info2)',
+      }
     default:
-      return undefined;
+      return undefined
   }
-});
+})
 
 // 下線を持つか算出します。リンクありかつボタンなしの場合は下線が出ます
 const hasUnderline = computed(
@@ -164,7 +164,7 @@ const hasUnderline = computed(
     !props.hasClose &&
     !props.primaryButtonLabel &&
     !props.secondaryButtonLabel,
-);
+)
 
 // ラッパー要素のタグ
 const wrapperTag = computed(() => {
@@ -174,23 +174,26 @@ const wrapperTag = computed(() => {
     props.primaryButtonLabel === undefined &&
     props.secondaryButtonLabel === undefined
   ) {
-    return LinkComponent;
+    return LinkComponent
   } else {
-    return "div";
+    return 'div'
   }
-});
+})
 
 // タイトルのタグ
 const titleTag = computed(() => {
   if (props.url && (props.primaryButtonLabel || props.secondaryButtonLabel)) {
-    return LinkComponent;
+    return LinkComponent
   } else {
-    return "span";
+    return 'span'
   }
-});
+})
 </script>
 <template>
-  <div class="notificationBannerWrapper" :class="[style, type]">
+  <div
+    class="notificationBannerWrapper"
+    :class="[style, type]"
+  >
     <component
       :is="wrapperTag"
       class="notificationBanner"
@@ -208,7 +211,12 @@ const titleTag = computed(() => {
             xmlns="http://www.w3.org/2000/svg"
             class="iconSvg"
           >
-            <circle cx="18" cy="18" r="18" fill="white" />
+            <circle
+              cx="18"
+              cy="18"
+              r="18"
+              fill="white"
+            />
             <path
               d="M18 0C8.064 0 0 8.064 0 18C0 27.936 8.064 36 18 36C27.936 36 36 27.936 36 18C36 8.064 27.936 0 18 0ZM14.4 27L5.4 18L7.938 15.462L14.4 21.906L28.062 8.244L30.6 10.8L14.4 27Z"
               fill="var(--color-status-success)"
@@ -253,7 +261,10 @@ const titleTag = computed(() => {
             xmlns="http://www.w3.org/2000/svg"
             class="iconSvg"
           >
-            <path d="M18 3.00098L36 34.091H0L18 3.00098Z" fill="white" />
+            <path
+              d="M18 3.00098L36 34.091H0L18 3.00098Z"
+              fill="white"
+            />
             <path
               d="M0 34.0909H36L18 3L0 34.0909ZM19.6364 29.1818H16.3636V25.9091H19.6364V29.1818ZM19.6364 22.6364H16.3636V16.0909H19.6364V22.6364Z"
               fill="var(--color-status-warning)"
@@ -269,7 +280,12 @@ const titleTag = computed(() => {
             xmlns="http://www.w3.org/2000/svg"
             class="iconSvg"
           >
-            <circle cx="18" cy="18" r="18" fill="white" />
+            <circle
+              cx="18"
+              cy="18"
+              r="18"
+              fill="white"
+            />
             <path
               d="M18 0C8.064 0 0 8.064 0 18C0 27.936 8.064 36 18 36C27.936 36 36 27.936 36 18C36 8.064 27.936 0 18 0ZM19.8 27H16.2V16.2H19.8V27ZM19.8 12.6H16.2V9H19.8V12.6Z"
               fill="var(--color-button-normal)"
@@ -285,7 +301,12 @@ const titleTag = computed(() => {
             xmlns="http://www.w3.org/2000/svg"
             class="iconSvg"
           >
-            <circle cx="18" cy="18" r="18" fill="var(--color-mono-clear)" />
+            <circle
+              cx="18"
+              cy="18"
+              r="18"
+              fill="var(--color-mono-clear)"
+            />
             <path
               d="M18 0C8.064 0 0 8.064 0 18C0 27.936 8.064 36 18 36C27.936 36 36 27.936 36 18C36 8.064 27.936 0 18 0ZM19.8 27H16.2V16.2H19.8V27ZM19.8 12.6H16.2V9H19.8V12.6Z"
               fill="var(--color-mono-reverse)"
@@ -304,13 +325,19 @@ const titleTag = computed(() => {
           </span>
         </component>
       </p>
-      <p v-if="date" class="date">
+      <p
+        v-if="date"
+        class="date"
+      >
         {{ date }}
       </p>
       <p class="description">
         {{ description }}
       </p>
-      <div v-if="hasClose" class="closeButtonWrapper">
+      <div
+        v-if="hasClose"
+        class="closeButtonWrapper"
+      >
         <button class="closeButton">
           <Icon
             :iconSrc="iconClose"
@@ -351,7 +378,7 @@ const titleTag = computed(() => {
   </div>
 </template>
 <style lang="scss" scoped>
-@use "@/assets/style/utils/utils.scss" as *;
+@use '@/assets/style/utils/utils.scss' as *;
 
 .notificationBannerWrapper {
   /* Successの副ボタンカスタムカラー */

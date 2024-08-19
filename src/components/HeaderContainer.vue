@@ -1,13 +1,16 @@
 <script setup lang="ts">
 type Props = {
-  type?: "full" | "slim";
-};
+  type?: 'full' | 'slim'
+}
 withDefaults(defineProps<Props>(), {
-  type: "full",
-});
+  type: 'full',
+})
 </script>
 <template>
-  <header class="header" :class="type">
+  <header
+    class="header"
+    :class="type"
+  >
     <div class="inner">
       <div class="logo">
         <slot name="logo"></slot>
@@ -25,7 +28,7 @@ withDefaults(defineProps<Props>(), {
   </header>
 </template>
 <style scoped lang="scss">
-@use "@/assets/style/utils/utils.scss" as *;
+@use '@/assets/style/utils/utils.scss' as *;
 
 .header {
   padding: 0 40px;
@@ -34,7 +37,7 @@ withDefaults(defineProps<Props>(), {
 
   &.slim {
     .inner {
-      grid-template: "logo menu item" 80px / 240px auto 1fr;
+      grid-template: 'logo menu item' 80px / 240px auto 1fr;
     }
   }
 
@@ -45,12 +48,12 @@ withDefaults(defineProps<Props>(), {
 
 .inner {
   display: grid;
-  grid-template: "logo item" 80px "menu menu" 56px / 240px 1fr;
+  grid-template: 'logo item' 80px 'menu menu' 56px / 240px 1fr;
   max-width: 1280px;
   margin: 0 auto;
 
   @include mediaQueryDown {
-    grid-template: "logo item hamburger" 56px / 160px 1fr 48px;
+    grid-template: 'logo item hamburger' 56px / 160px 1fr 48px;
   }
 }
 

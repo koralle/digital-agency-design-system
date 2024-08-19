@@ -1,14 +1,14 @@
-import type { Meta, StoryObj } from "@storybook/vue3";
-import BasicTable from "../components/BasicTable.vue";
+import type { Meta, StoryObj } from '@storybook/vue3'
+import BasicTable from '../components/BasicTable.vue'
 
 const meta = {
-  title: "テーブル",
+  title: 'テーブル',
   component: BasicTable,
-  tags: ["autodocs"],
-} satisfies Meta<typeof BasicTable>;
+  tags: ['autodocs'],
+} satisfies Meta<typeof BasicTable>
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const Base: Story = {
   render: () => ({
@@ -63,4 +63,4 @@ export const Base: Story = {
       </table>
     </BasicTable>`,
   }),
-};
+}

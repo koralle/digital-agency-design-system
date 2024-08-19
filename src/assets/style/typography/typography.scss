@@ -1,4 +1,4 @@
-@use "@/assets/style/utils/utils.scss" as *;
+@use '@/assets/style/utils/utils.scss' as *;
 
 /** 
  * Display
@@ -360,42 +360,42 @@
  * Mono
  */
 .Mono-17B-5 {
-  font-family: "Noto Sans Mono", monospace;
+  font-family: 'Noto Sans Mono', monospace;
   font-size: pxToRem(17);
   font-weight: var(--weight-bold);
   line-height: 1;
 }
 
 .Mono-17N-5 {
-  font-family: "Noto Sans Mono", monospace;
+  font-family: 'Noto Sans Mono', monospace;
   font-size: pxToRem(17);
   font-weight: var(--weight-normal);
   line-height: 1;
 }
 
 .Mono-16B-5 {
-  font-family: "Noto Sans Mono", monospace;
+  font-family: 'Noto Sans Mono', monospace;
   font-size: pxToRem(16);
   font-weight: var(--weight-bold);
   line-height: 1;
 }
 
 .Mono-16N-5 {
-  font-family: "Noto Sans Mono", monospace;
+  font-family: 'Noto Sans Mono', monospace;
   font-size: pxToRem(16);
   font-weight: var(--weight-normal);
   line-height: 1;
 }
 
 .Mono-14B-5 {
-  font-family: "Noto Sans Mono", monospace;
+  font-family: 'Noto Sans Mono', monospace;
   font-size: pxToRem(14);
   font-weight: var(--weight-bold);
   line-height: 1;
 }
 
 .Mono-14N-5 {
-  font-family: "Noto Sans Mono", monospace;
+  font-family: 'Noto Sans Mono', monospace;
   font-size: pxToRem(14);
   font-weight: var(--weight-normal);
   line-height: 1;

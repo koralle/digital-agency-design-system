@@ -1,39 +1,39 @@
-import type { Meta, StoryObj } from "@storybook/vue3";
-import DropDown from "../components/DropDown.vue";
-import Menu from "../components/Menu.vue";
-import { menuList } from "./stub/menulist";
+import type { Meta, StoryObj } from '@storybook/vue3'
+import DropDown from '../components/DropDown.vue'
+import Menu from '../components/Menu.vue'
+import { menuList } from './stub/menulist'
 
 const meta = {
-  title: "ドロップダウン",
+  title: 'ドロップダウン',
   component: DropDown,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     summary: {
-      control: "text",
+      control: 'text',
     },
     hasShadow: {
-      control: "boolean",
+      control: 'boolean',
     },
     side: {
-      controle: "radio",
-      options: ["left", "right"],
+      controle: 'radio',
+      options: ['left', 'right'],
     },
   },
   args: {
-    summary: "ドロップダウン",
+    summary: 'ドロップダウン',
     hasShadow: false,
-    side: "left",
+    side: 'left',
   },
-} satisfies Meta<typeof DropDown>;
-export default meta;
-type Story = StoryObj<typeof meta>;
+} satisfies Meta<typeof DropDown>
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const Base: Story = {
-  args: { summary: "ドロップダウン", hasShadow: false, side: "left" },
+  args: { summary: 'ドロップダウン', hasShadow: false, side: 'left' },
   render: (args) => ({
     components: { DropDown, Menu },
     setup: () => {
-      return { ...args, menuList };
+      return { ...args, menuList }
     },
     template: `
     <DropDown :summary="summary" :hasShadow="hasShadow" :side="side">
@@ -41,14 +41,14 @@ export const Base: Story = {
     </DropDown>
     `,
   }),
-};
+}
 
 export const HasShadow: Story = {
-  args: { summary: "ドロップダウン", hasShadow: true, side: "left" },
+  args: { summary: 'ドロップダウン', hasShadow: true, side: 'left' },
   render: (args) => ({
     components: { DropDown, Menu },
     setup: () => {
-      return { ...args, menuList };
+      return { ...args, menuList }
     },
     template: `
     <DropDown :summary="summary" :hasShadow="hasShadow" :side="side">
@@ -56,18 +56,18 @@ export const HasShadow: Story = {
     </DropDown>
     `,
   }),
-};
+}
 
 export const RightSide: Story = {
   args: {
-    summary: "ドロップダウン",
+    summary: 'ドロップダウン',
     hasShadow: false,
-    side: "right",
+    side: 'right',
   },
   render: (args) => ({
     components: { DropDown, Menu },
     setup: () => {
-      return { ...args, menuList };
+      return { ...args, menuList }
     },
     template: `
     <DropDown :summary="summary" :hasShadow="hasShadow" :side="side">
@@ -75,4 +75,4 @@ export const RightSide: Story = {
     </DropDown>
     `,
   }),
-};
+}

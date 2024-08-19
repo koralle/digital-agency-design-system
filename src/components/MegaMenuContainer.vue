@@ -1,28 +1,32 @@
 <script lang="ts" setup>
-import HamburgerButton from "./HamburgerButton.vue";
+import HamburgerButton from './HamburgerButton.vue'
 
 type Props = {
   /** メガメニューのスタイルです */
-  style?: "flat" | "shadow";
+  style?: 'flat' | 'shadow'
   /** メガメニューを表示するかどうか */
-  isVisible: boolean;
-};
+  isVisible: boolean
+}
 
-type Emits = { (e: "update:isVisible", value: false): void };
+type Emits = { (e: 'update:isVisible', value: false): void }
 
 withDefaults(defineProps<Props>(), {
-  style: "flat",
-});
+  style: 'flat',
+})
 
-const emits = defineEmits<Emits>();
+const emits = defineEmits<Emits>()
 
 const handleClickHamburger = () => {
-  console.log("aaa");
-  emits("update:isVisible", false);
-};
+  console.log('aaa')
+  emits('update:isVisible', false)
+}
 </script>
 <template>
-  <div v-show="isVisible" class="megaMenuContainer" :class="style">
+  <div
+    v-show="isVisible"
+    class="megaMenuContainer"
+    :class="style"
+  >
     <div>
       <slot name="col1"></slot>
     </div>
@@ -36,7 +40,10 @@ const handleClickHamburger = () => {
       <slot name="col4"></slot>
     </div>
     <div class="hamburger">
-      <HamburgerButton :modelValue="true" :onClick="handleClickHamburger" />
+      <HamburgerButton
+        :modelValue="true"
+        :onClick="handleClickHamburger"
+      />
     </div>
   </div>
 </template>

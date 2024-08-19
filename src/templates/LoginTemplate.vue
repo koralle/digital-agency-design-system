@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import Layout from "../components/Layout.vue";
-import Heading from "../components/Heading.vue";
-import BasicButton from "../components/BasicButton.vue";
-import { useEmailInput } from "../composables/useEmailInput";
-import { usePasswordInput } from "../composables/usePasswordInput";
+import Layout from '../components/Layout.vue'
+import Heading from '../components/Heading.vue'
+import BasicButton from '../components/BasicButton.vue'
+import { useEmailInput } from '../composables/useEmailInput'
+import { usePasswordInput } from '../composables/usePasswordInput'
 
-const { UseEmailInputComponent, email } = useEmailInput();
-const { UsePasswordInputComponent, password } = usePasswordInput();
+const { UseEmailInputComponent, email } = useEmailInput()
+const { UsePasswordInputComponent, password } = usePasswordInput()
 
 const handleSubmit = () => {
-  console.log(email.value, password.value);
-};
+  console.log(email.value, password.value)
+}
 </script>
 <template>
   <Layout>
@@ -22,9 +22,18 @@ const handleSubmit = () => {
           <UsePasswordInputComponent />
         </div>
         <div class="loginButtons">
-          <BasicButton label="ログイン" @click="handleSubmit" />
-          <BasicButton label="新規登録" type="secondary" />
-          <BasicButton label="パスワードをお忘れの方" type="tertiary" />
+          <BasicButton
+            label="ログイン"
+            @click="handleSubmit"
+          />
+          <BasicButton
+            label="新規登録"
+            type="secondary"
+          />
+          <BasicButton
+            label="パスワードをお忘れの方"
+            type="tertiary"
+          />
         </div>
       </form>
     </div>

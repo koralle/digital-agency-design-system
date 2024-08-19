@@ -1,148 +1,148 @@
-import type { Meta, StoryObj } from "@storybook/vue3";
-import BasicButton from "../components/BasicButton.vue";
+import type { Meta, StoryObj } from '@storybook/vue3'
+import BasicButton from '../components/BasicButton.vue'
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta = {
-  title: "ボタン",
+  title: 'ボタン',
   component: BasicButton,
   // This component will have an automatically generated docsPage entry: https://storybook.js.org/docs/writing-docs/autodocs
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
-    label: { control: "text" },
+    label: { control: 'text' },
     type: {
-      control: "radio",
-      options: ["primary", "secondary", "tertiary"],
+      control: 'radio',
+      options: ['primary', 'secondary', 'tertiary'],
     },
     size: {
-      control: "radio",
-      options: ["large", "medium", "small", "x-small"],
+      control: 'radio',
+      options: ['large', 'medium', 'small', 'x-small'],
     },
     disabled: {
-      control: "boolean",
+      control: 'boolean',
     },
-    onClick: { action: "clicked" },
+    onClick: { action: 'clicked' },
   },
   args: {
-    label: "ボタン",
-    type: "primary",
-    size: "medium",
+    label: 'ボタン',
+    type: 'primary',
+    size: 'medium',
     disabled: false,
   }, // default value
-} satisfies Meta<typeof BasicButton>;
+} satisfies Meta<typeof BasicButton>
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 
 /**
  * プライマリー
  */
 export const Primary: Story = {
   args: {
-    label: "ボタン",
-    type: "primary",
+    label: 'ボタン',
+    type: 'primary',
   },
-};
+}
 
 /**
  * セカンダリー
  */
 export const Secondary: Story = {
   args: {
-    label: "ボタン",
-    type: "secondary",
+    label: 'ボタン',
+    type: 'secondary',
   },
-};
+}
 
 /**
  * ターシャリ
  */
 export const Tertiary: Story = {
   args: {
-    label: "ボタン",
-    type: "tertiary",
+    label: 'ボタン',
+    type: 'tertiary',
   },
-};
+}
 
 /**
  * Largeサイズ
  */
 export const Large: Story = {
   args: {
-    label: "ボタン",
-    size: "large",
+    label: 'ボタン',
+    size: 'large',
   },
-};
+}
 
 /**
  * Mediumサイズ
  */
 export const Medium: Story = {
   args: {
-    label: "ボタン",
-    size: "medium",
+    label: 'ボタン',
+    size: 'medium',
   },
-};
+}
 
 /**
  * Smallサイズ
  */
 export const Small: Story = {
   args: {
-    label: "ボタン",
-    size: "small",
+    label: 'ボタン',
+    size: 'small',
   },
-};
+}
 
 /**
  * X-Smallサイズ
  */
 export const XSmall: Story = {
   args: {
-    label: "ボタン",
-    size: "x-small",
+    label: 'ボタン',
+    size: 'x-small',
   },
-};
+}
 
 /**
  * カスタムカラー（プライマリーボタンタイプ）
  */
 export const CustomColor1: Story = {
   args: {
-    label: "ボタン",
-    type: "custom",
+    label: 'ボタン',
+    type: 'custom',
     customColor: {
-      backgroundColor: "var(--color-status-success)",
-      hoverBackgroundColor: "var(--color-green-800)",
-      labelColor: "#FFF",
-      hoverLabelColor: "#FFF",
+      backgroundColor: 'var(--color-status-success)',
+      hoverBackgroundColor: 'var(--color-green-800)',
+      labelColor: '#FFF',
+      hoverLabelColor: '#FFF',
     },
   },
-};
+}
 
 /**
  * カスタムカラー（セカンダリーボタンタイプ）
  */
 export const CustomColor2: Story = {
   args: {
-    label: "ボタン",
-    type: "custom",
+    label: 'ボタン',
+    type: 'custom',
     customColor: {
-      backgroundColor: "var(--color-text-onFill)",
-      borderColor: "var(--color-status-warning)",
-      hoverBackgroundColor: "var(--color-yellow-100)",
-      labelColor: "var(--color-status-warning)",
-      hoverLabelColor: "var(--color-yellow-1000)",
-      hoverBorderColor: "var(--color-yellow-1000)",
+      backgroundColor: 'var(--color-text-onFill)',
+      borderColor: 'var(--color-status-warning)',
+      hoverBackgroundColor: 'var(--color-yellow-100)',
+      labelColor: 'var(--color-status-warning)',
+      hoverLabelColor: 'var(--color-yellow-1000)',
+      hoverBorderColor: 'var(--color-yellow-1000)',
     },
   },
-};
+}
 
 /**
  * 非活性時
  */
 export const Disabled: Story = {
   args: {
-    label: "ボタン",
+    label: 'ボタン',
     disabled: true,
   },
-};
+}

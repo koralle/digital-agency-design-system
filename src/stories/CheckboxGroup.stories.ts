@@ -1,53 +1,53 @@
-import type { Meta, StoryObj } from "@storybook/vue3";
-import CheckboxGroup from "../components/CheckboxGroup.vue";
-import { ref } from "vue";
+import type { Meta, StoryObj } from '@storybook/vue3'
+import CheckboxGroup from '../components/CheckboxGroup.vue'
+import { ref } from 'vue'
 
 const meta = {
-  title: "チェックボックスグループ",
+  title: 'チェックボックスグループ',
   component: CheckboxGroup,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     groupLabel: {
-      control: "text",
+      control: 'text',
     },
     supportText: {
-      control: "text",
+      control: 'text',
     },
     errorText: {
-      control: "text",
+      control: 'text',
     },
     isRequired: {
-      control: "boolean",
+      control: 'boolean',
     },
     isValid: {
-      control: "boolean",
+      control: 'boolean',
     },
     isDisabled: {
-      control: "boolean",
+      control: 'boolean',
     },
   },
   args: {
-    labels: ["選択肢1", "選択肢2", "選択肢3"],
-    values: ["選択肢1の値", "選択肢2の値", "選択肢3の値"],
-    groupLabel: "ラベル",
-    supportText: "サポートテキスト",
-    errorText: "エラーテキスト",
+    labels: ['選択肢1', '選択肢2', '選択肢3'],
+    values: ['選択肢1の値', '選択肢2の値', '選択肢3の値'],
+    groupLabel: 'ラベル',
+    supportText: 'サポートテキスト',
+    errorText: 'エラーテキスト',
     onBlur: undefined,
     isRequired: false,
     isValid: true,
     isDisabled: false,
   },
-} as Meta<typeof CheckboxGroup>;
-type Story = StoryObj<typeof meta>;
+} as Meta<typeof CheckboxGroup>
+type Story = StoryObj<typeof meta>
 
-export default meta;
+export default meta
 
 export const Base: Story = {
   render: (args) => ({
     components: { CheckboxGroup },
     setup: () => {
-      const checked = ref(["選択肢1の値"]);
-      return { checked, ...args };
+      const checked = ref(['選択肢1の値'])
+      return { checked, ...args }
     },
     template: `
       <div>
@@ -66,4 +66,4 @@ export const Base: Story = {
       </div>
     `,
   }),
-};
+}

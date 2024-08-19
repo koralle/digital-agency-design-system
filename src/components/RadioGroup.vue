@@ -1,38 +1,38 @@
 <script lang="ts" setup>
-import RadioButton from "./RadioButton.vue";
+import RadioButton from './RadioButton.vue'
 
 type Props = {
   /** 格納するリアクティブな値（v-modelでも使える） */
-  modelValue: string | null;
+  modelValue: string | null
   /** ラジオボタングループのラベル */
-  groupLabel: string;
+  groupLabel: string
   /** デフォルトスタイルかタイルスタイルか */
-  radioStyle?: "default" | "tile";
+  radioStyle?: 'default' | 'tile'
   /** ラジオボタンを紐付けるname属性 */
-  name: string;
+  name: string
   /** 各選択肢の文字列 */
-  labels: string[];
+  labels: string[]
   /** 各選択肢の値 */
-  values: string[];
+  values: string[]
   /** 各選択肢のサブテキスト（タイルスタイル用） */
-  subTexts?: string[];
+  subTexts?: string[]
   /** 内容を補足するサポートテキスト */
-  supportText?: string;
+  supportText?: string
   /** エラー時に表示するテキスト */
-  errorText?: string;
+  errorText?: string
   /** 必須かどうか。未指定の場合はfalse */
-  isRequired?: boolean;
+  isRequired?: boolean
   /** 妥当性 */
-  isValid?: boolean;
+  isValid?: boolean
   /** フォーカスアウト時のコールバック関数 */
-  onBlur?: () => void;
+  onBlur?: () => void
   /** ボタンが非活性状態か。未指定の場合はfalse */
-  isDisabled?: boolean;
-};
-const model = defineModel<string | null>();
+  isDisabled?: boolean
+}
+const model = defineModel<string | null>()
 
 withDefaults(defineProps<Props>(), {
-  radioStyle: "default",
+  radioStyle: 'default',
   isRequired: false,
   isValid: true,
   isDisabled: false,
@@ -40,16 +40,30 @@ withDefaults(defineProps<Props>(), {
   supportText: undefined,
   errorText: undefined,
   onBlur: undefined,
-});
+})
 </script>
 <template>
-  <div class="radioGroup" :class="[{ isError: !isValid }, radioStyle]">
+  <div
+    class="radioGroup"
+    :class="[{ isError: !isValid }, radioStyle]"
+  >
     <p class="label">
       {{ groupLabel }}
-      <span v-if="isRequired" class="requiredText isRequired">必須</span>
-      <span v-else class="requiredText">任意</span>
+      <span
+        v-if="isRequired"
+        class="requiredText isRequired"
+        >必須</span
+      >
+      <span
+        v-else
+        class="requiredText"
+        >任意</span
+      >
     </p>
-    <p v-if="supportText !== undefined" class="supportText">
+    <p
+      v-if="supportText !== undefined"
+      class="supportText"
+    >
       {{ supportText }}
     </p>
 
@@ -67,13 +81,17 @@ withDefaults(defineProps<Props>(), {
         :isDisabled="isDisabled"
       />
     </div>
-    <p v-if="errorText !== undefined" v-show="!isValid" class="errorText">
+    <p
+      v-if="errorText !== undefined"
+      v-show="!isValid"
+      class="errorText"
+    >
       {{ errorText }}
     </p>
   </div>
 </template>
 <style lang="scss" scoped>
-@use "@/assets/style/utils/utils.scss" as *;
+@use '@/assets/style/utils/utils.scss' as *;
 
 .radioGroup.tile {
   .buttons {

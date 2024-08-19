@@ -1,30 +1,30 @@
 <script lang="ts" setup>
-import Checkbox from "./Checkbox.vue";
+import Checkbox from './Checkbox.vue'
 
 type Props = {
   /** 格納するリアクティブな値（v-modelでも使える） */
-  modelValue: [] | string[];
+  modelValue: [] | string[]
   /** チェックボタングループのラベル */
-  groupLabel: string;
+  groupLabel: string
   /** チェックボタンを紐付けるname属性 */
-  name: string;
+  name: string
   /** 各選択肢の文字列 */
-  labels: string[];
+  labels: string[]
   /** 各選択肢の値 */
-  values: string[];
+  values: string[]
   /** 内容を補足するサポートテキスト */
-  supportText?: string;
+  supportText?: string
   /** エラー時に表示するテキスト */
-  errorText?: string;
+  errorText?: string
   /** 必須かどうか。未指定の場合はfalse */
-  isRequired?: boolean;
+  isRequired?: boolean
   /** 妥当性 */
-  isValid?: boolean;
+  isValid?: boolean
   /** フォーカスアウト時のコールバック関数 */
-  onBlur?: () => void;
+  onBlur?: () => void
   /** ボタンが非活性状態か。未指定の場合はfalse */
-  isDisabled?: boolean;
-};
+  isDisabled?: boolean
+}
 
 withDefaults(defineProps<Props>(), {
   isRequired: false,
@@ -33,19 +33,33 @@ withDefaults(defineProps<Props>(), {
   supportText: undefined,
   errorText: undefined,
   onBlur: undefined,
-});
+})
 
 // 選択された値
-const model = defineModel<[] | string[]>();
+const model = defineModel<[] | string[]>()
 </script>
 <template>
-  <div class="checkboxGroup" :class="{ isError: !isValid }">
+  <div
+    class="checkboxGroup"
+    :class="{ isError: !isValid }"
+  >
     <p class="label">
       {{ groupLabel }}
-      <span v-if="isRequired" class="requiredText isRequired">必須</span>
-      <span v-else class="requiredText">任意</span>
+      <span
+        v-if="isRequired"
+        class="requiredText isRequired"
+        >必須</span
+      >
+      <span
+        v-else
+        class="requiredText"
+        >任意</span
+      >
     </p>
-    <p v-if="supportText !== undefined" class="supportText">
+    <p
+      v-if="supportText !== undefined"
+      class="supportText"
+    >
       {{ supportText }}
     </p>
     <div class="buttons">
@@ -61,13 +75,17 @@ const model = defineModel<[] | string[]>();
       />
     </div>
 
-    <p v-if="errorText !== undefined" v-show="!isValid" class="errorText">
+    <p
+      v-if="errorText !== undefined"
+      v-show="!isValid"
+      class="errorText"
+    >
       {{ errorText }}
     </p>
   </div>
 </template>
 <style lang="scss" scoped>
-@use "@/assets/style/utils/utils.scss" as *;
+@use '@/assets/style/utils/utils.scss' as *;
 
 .label {
   display: flex;
