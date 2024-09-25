@@ -1,0 +1,20 @@
+{
+  "name": "@koralle/components",
+  "version": "0.1.0",
+  "private": true,
+  "main": "src/index.ts",
+  "scripts": {
+    "type-check": "tsc",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@koralle/composables": "../composables"
+  },
+  "devDependencies": {
+    "@koralle/tsconfig": "../tsconfig",
+    "vue": "3.5.6"
+  },
+  "peerDependencies": {
+    "typescript": ">=5.6.0"
+  }
+}

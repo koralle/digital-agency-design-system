@@ -1,0 +1,19 @@
+{
+  "name": "@koralle/utils",
+  "version": "0.1.0",
+  "private": true,
+  "main": "src/index.ts",
+  "scripts": {
+    "type-check": "tsc",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "es-toolkit": "1.21.0"
+  },
+  "devDependencies": {
+    "@koralle/tsconfig": "../tsconfig"
+  },
+  "peerDependencies": {
+    "typescript": ">=5.6.0"
+  }
+}

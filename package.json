@@ -1,64 +1,34 @@
 {
-  "name": "digital-agency-design-system-vue",
+  "name": "@koralle/digital-agency-design-system-vue-monorepo",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "packageManager": "pnpm@9.7.1",
+  "version": "0.1.0",
+  "packageManager": "npm@10.8.3+sha512.d08425c8062f56d43bb8e84315864218af2492eb769e1f1ca40740f44e85bd148969382d651660363942e5909cb7ffcbef7ca0ae963ddc2c57a51243b4da8f56",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "dev": "vite --host",
-    "build": "vue-tsc && vite build",
-    "preview": "vite preview",
-    "typeCheck": "vue-tsc",
-    "lint": "eslint \"./**/*.{ts,vue}\" && stylelint \"./**/*.{scss,vue}\" && prettier \"./**/*.{scss,vue,ts}\" --check",
-    "lint:fix": "eslint \"./**/*.{vue,ts}\" --fix && stylelint \"./**/*.{scss,vue}\" --fix && prettier \"./**/*.{scss,vue,ts}\" --write",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
-  },
-  "dependencies": {
-    "vue": "3.4.21"
+    "gen:package": "turbo gen package",
+    "gen:composable": "turbo gen composable",
+    "gen:component": "turbo gen component",
+    "docs:dev": "turbo dev --filter=@koralle/docs",
+    "docs:build": "turbo build --filter=@koralle/docs"
   },
   "devDependencies": {
-    "@storybook/addon-essentials": "8.0.6",
-    "@storybook/addon-interactions": "8.0.6",
-    "@storybook/addon-links": "8.0.6",
-    "@storybook/blocks": "8.0.6",
-    "@storybook/test": "8.0.6",
-    "@storybook/vue3": "8.0.6",
-    "@storybook/vue3-vite": "8.0.6",
-    "@typescript-eslint/eslint-plugin": "7.5.0",
-    "@typescript-eslint/parser": "7.5.0",
-    "@vitejs/plugin-vue": "5.0.4",
-    "@vue/eslint-config-typescript": "13.0.0",
-    "dotenv": "16.4.5",
-    "eslint": "8.57.0",
-    "eslint-config-prettier": "9.1.0",
-    "eslint-plugin-storybook": "^0.8.0",
-    "eslint-plugin-vue": "9.24.0",
-    "init": "0.1.2",
-    "postcss-html": "1.6.0",
-    "prettier": "3.2.5",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "sass": "1.74.1",
-    "storybook": "8.0.6",
-    "storybook-dark-mode": "4.0.1",
-    "stylelint": "16.3.1",
-    "stylelint-config-prettier": "9.0.5",
-    "stylelint-config-recess-order": "5.0.0",
-    "stylelint-config-recommended-vue": "1.5.0",
-    "stylelint-config-standard-scss": "13.1.0",
-    "typescript": "5.4.4",
-    "vite": "5.2.8",
-    "vue-eslint-parser": "9.4.2",
-    "vue-tsc": "2.0.10"
-  },
-  "resolutions": {
-    "jackspeak": "2.1.1"
+    "@turbo/gen": "2.1.2",
+    "@vitejs/plugin-vue": "5.1.4",
+    "@vitest/browser": "2.1.1",
+    "turbo": "2.1.2",
+    "typescript": "5.6.2",
+    "vite": "5.4.8",
+    "vitest": "2.1.1",
+    "vue": "3.5.6",
+    "vue-tsc": "2.1.6"
   },
   "engines": {
     "node": ">=20.x",
-    "pnpm": ">=9.x",
-    "npm": "please use pnpm!",
-    "yarn": "please use pnpm!"
+    "pnpm": "please use npm!",
+    "npm": ">=10.x",
+    "yarn": "please use npm!"
   }
 }

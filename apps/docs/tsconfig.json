@@ -4,5 +4,5 @@
     "incremental": true,
     "tsBuildInfoFile": "node_modules/tsconfig.tsbuildinfo"
   },
-  "include": ["turbo/generators/config.ts"]
+  "include": ["stories/**/*.ts", ".storybook/**/*.ts"]
 }

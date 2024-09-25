@@ -1,0 +1,13 @@
+import { Meta, StoryObj } from "@storybook/vue3"
+import { {{pascalCase packageName}} } from "@koralle/ui"
+
+const meta = {
+  title: "Components / {{pascalCase packageName}}",
+  component: {{pascalCase packageName}},
+}  satisfies Meta<typeof {{pascalCase packageName}}>
+
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+export const Default: Story = {}
