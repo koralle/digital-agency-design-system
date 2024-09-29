@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "storybook dev -p 6006",
-    "build": "storybook build",
+    "dev": "histoire dev",
+    "build": "histoire build",
+    "preview": "histoire preview",
     "type-check": "tsc",
     "test": "vitest"
   },
@@ -13,15 +14,9 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "1.9.0",
+    "@histoire/plugin-vue": "0.17.17",
     "@koralle/tsconfig": "../../packages/tsconfig",
-    "@storybook/addon-essentials": "8.3.3",
-    "@storybook/addon-interactions": "8.3.3",
-    "@storybook/addon-links": "8.3.3",
-    "@storybook/addon-onboarding": "8.3.3",
-    "@storybook/blocks": "8.3.3",
-    "@storybook/test": "8.3.3",
-    "@storybook/vue3": "8.3.3",
-    "@storybook/vue3-vite": "8.3.3",
-    "storybook": "8.3.3"
+    "flexsearch": "0.7.43",
+    "histoire": "0.17.17"
   }
 }

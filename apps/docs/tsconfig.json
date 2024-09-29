@@ -4,5 +4,10 @@
     "incremental": true,
     "tsBuildInfoFile": "node_modules/tsconfig.tsbuildinfo"
   },
-  "include": ["stories/**/*.ts", ".storybook/**/*.ts"]
+  "include": [
+    "src/**/*.story.vue",
+    "scripts/**/*.ts",
+    "env.d.ts",
+    "histoire.config.ts"
+  ]
 }
