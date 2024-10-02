@@ -1,0 +1,46 @@
+<script setup lang='ts'>
+  import { Icon } from '@koralle/ui'
+
+</script>
+
+<template>
+  <Story title='Components / Icon / {{pascalCase iconName}}'>
+    <Variant title='Type'>
+      <Icon icon='{{snakeCase iconName}}' type='outlined' />
+      <Icon icon='{{snakeCase iconName}}' type='rounded' />
+      <Icon icon='{{snakeCase iconName}}' type='sharp' />
+    </Variant>
+
+    <Variant title='Weight'>
+      <Icon icon='{{snakeCase iconName}}' :weight='100' />
+      <Icon icon='{{snakeCase iconName}}' :weight='200' />
+      <Icon icon='{{snakeCase iconName}}' :weight='300' />
+      <Icon icon='{{snakeCase iconName}}' :weight='400' />
+      <Icon icon='{{snakeCase iconName}}' :weight='500' />
+      <Icon icon='{{snakeCase iconName}}' :weight='600' />
+      <Icon icon='{{snakeCase iconName}}' :weight='700' />
+    </Variant>
+
+    <Variant title='Grade'>
+      <Icon icon='{{snakeCase iconName}}' :grade='-25' />
+      <Icon icon='{{snakeCase iconName}}' :grade='0' />
+      <Icon icon='{{snakeCase iconName}}' :grade='200' />
+    </Variant>
+
+    <Variant title='Size'>
+      <Icon icon='{{snakeCase iconName}}' :size='16' />
+      <Icon icon='{{snakeCase iconName}}' :size='20' />
+      <Icon icon='{{snakeCase iconName}}' :size='24' />
+      <Icon icon='{{snakeCase iconName}}' :size='32' />
+      <Icon icon='{{snakeCase iconName}}' :size='40' />
+      <Icon icon='{{snakeCase iconName}}' :size='48' />
+    </Variant>
+  </Story>
+</template>
+
+<style lang='css' scoped>
+</style>
+
+<docs lang='md'>
+  # Icon
+</docs>

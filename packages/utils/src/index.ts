@@ -1,1 +1,1 @@
-export * from "es-toolkit"
+export * from 'es-toolkit'

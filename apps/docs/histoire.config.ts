@@ -5,5 +5,6 @@ import { resolve } from 'node:path'
 export default defineConfig({
   plugins: [HstVue()],
   setupFile: resolve(__dirname, './scripts/setup-histoire.ts'),
-  theme: {}
+  theme: {},
+  storyMatch: ['./stories/components/**/*.story.vue'],
 })

@@ -11,6 +11,7 @@
     "gen:package": "turbo gen package",
     "gen:composable": "turbo gen composable",
     "gen:component": "turbo gen component",
+    "gen:icon-story": "turbo gen icon-story",
     "docs:dev": "turbo dev --filter=@koralle/docs",
     "docs:build": "turbo build --filter=@koralle/docs"
   },
